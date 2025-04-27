@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="#FFFFC1CC"
+    android:layout_marginBottom="8dp"
+    android:layout_marginTop="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Mã phiếu -->
+        <TextView
+            android:id="@+id/tv_maphieu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📋 PN-2025-0023"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FF000000"
+            android:layout_marginBottom="4dp"/>
+
+        <!-- Kho -->
+        <TextView
+            android:id="@+id/tv_tenkho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🏷️ Kho A"
+            android:textSize="16sp"
+            android:textColor="#FF000000"
+            android:layout_marginBottom="4dp"/>
+
+        <!-- Người tạo -->
+        <TextView
+            android:id="@+id/tv_nguoitao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="👤 Người tạo: Nguyễn Văn A"
+            android:textSize="16sp"
+            android:textColor="#FF000000"
+            android:layout_marginBottom="4dp"/>
+
+        <!-- Ngày -->
+        <TextView
+            android:id="@+id/tv_ngaytao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📆 Ngày: 14/4/2025"
+            android:textSize="16sp"
+            android:textColor="#FF000000"
+            android:layout_marginBottom="4dp"/>
+
+        <!-- Số vật tư -->
+        <TextView
+            android:id="@+id/tv_so_vt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📦 3 vật tư"
+            android:textSize="16sp"
+            android:textColor="#FF000000"
+            android:layout_marginBottom="8dp"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
