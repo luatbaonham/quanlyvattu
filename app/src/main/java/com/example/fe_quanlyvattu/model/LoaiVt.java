@@ -1,6 +1,7 @@
 package com.example.fe_quanlyvattu.model;
+import java.io.Serializable;
 
-public class LoaiVt {
+public class LoaiVt implements Serializable{
     private String tenloai;
     private String mota;
     private int soluong;

@@ -1,5 +1,6 @@
 package com.example.fe_quanlyvattu.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -76,6 +77,13 @@ public class Fragment_vat_tu extends Fragment {
                 }
 
                 adapter.notifyDataSetChanged(); // Cập nhật lại RecyclerView
+            }
+        });
+        btnloai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), LoaiVtActivity.class);
+                startActivity(intent);
             }
         });
 
