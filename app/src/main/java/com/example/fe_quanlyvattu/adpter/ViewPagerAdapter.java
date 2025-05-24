@@ -6,11 +6,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.fe_quanlyvattu.activity.Fragment_de_xuat;
-import com.example.fe_quanlyvattu.activity.Fragment_home;
-import com.example.fe_quanlyvattu.activity.Fragment_kho;
-import com.example.fe_quanlyvattu.activity.Fragment_tai_khoan;
-import com.example.fe_quanlyvattu.activity.Fragment_vat_tu;
+import com.example.fe_quanlyvattu.fragment.Fragment_duyet_capphat;
+import com.example.fe_quanlyvattu.fragment.Fragment_home;
+import com.example.fe_quanlyvattu.fragment.Fragment_phieunhap_thanhly;
+import com.example.fe_quanlyvattu.fragment.Fragment_tai_khoan;
+import com.example.fe_quanlyvattu.fragment.Fragment_vat_tu;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
 
@@ -23,13 +23,13 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position) {
             case 0:
-                return new Fragment_de_xuat();
+                return new Fragment_duyet_capphat();
             case 1:
                 return new Fragment_vat_tu();
             case 2:
                 return new Fragment_home();
             case 3:
-                return new Fragment_kho();
+                return new Fragment_phieunhap_thanhly();
             case 4:
                 return new Fragment_tai_khoan();
 

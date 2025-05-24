@@ -1,4 +1,4 @@
-package com.example.fe_quanlyvattu.activity;
+package com.example.fe_quanlyvattu.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,14 +15,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fe_quanlyvattu.R;
+import com.example.fe_quanlyvattu.activity.LoaiVtActivity;
 import com.example.fe_quanlyvattu.adpter.VatTuAdapter;
-import com.example.fe_quanlyvattu.model.DeXuat;
 import com.example.fe_quanlyvattu.model.VatTu;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import kotlin.jvm.internal.Ref;
 
 public class Fragment_vat_tu extends Fragment {
 
@@ -44,7 +42,7 @@ public class Fragment_vat_tu extends Fragment {
         edtTk= view.findViewById(R.id.edtTimKiem);
         btnloai = view.findViewById(R.id.btn_loai);
         btnkho = view.findViewById(R.id.btn_kho);
-        btndvtinh = view.findViewById(R.id.btn_don_vi);
+//        btndvtinh = view.findViewById(R.id.btn_don_vi);
         btntrangthai = view.findViewById(R.id.btn_trangthai);
         btnTk = view.findViewById(R.id.btn_tk);
 

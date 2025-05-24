@@ -36,13 +36,13 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.nav_home:
                     viewPager.setCurrentItem(2);
                     return true;
-                case R.id.nav_quan_ly_kho:
+                case R.id.nav_quan_ly_phieu_nhap:
                     viewPager.setCurrentItem(3);
                     return true;
                 case R.id.nav_quan_ly_tai_khoan:
                     viewPager.setCurrentItem(4);
                     return true;
-                case R.id.nav_de_xuat_cap_phat:
+                case R.id.nav_quan_ly_phieu_thanh_ly:
                     viewPager.setCurrentItem(0);
                     return true;
                 case R.id.nav_quan_ly_vat_tu:

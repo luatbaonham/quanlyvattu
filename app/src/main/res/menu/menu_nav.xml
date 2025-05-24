@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/nav_de_xuat_cap_phat"
-        android:title="Đề xuất cấp phát"/>
+        android:id="@+id/nav_quan_ly_phieu_thanh_ly"
+        android:title="Quản lý cấp phát"
+        android:icon="@drawable/dexuat"/>
     <item
         android:id="@+id/nav_quan_ly_vat_tu"
-        android:title="Quản lý vật tư"/>
+        android:title="Quản lý vật tư"
+        android:icon="@drawable/vattu"/>
     <item
         android:id="@+id/nav_home"
-        android:title="Trang chủ"/>
+        android:title="Trang chủ"
+        android:icon="@drawable/ic_home"/>
     <item
-        android:id="@+id/nav_quan_ly_kho"
-        android:title="Quản lý kho"/>
+        android:id="@+id/nav_quan_ly_phieu_nhap"
+        android:title="Quản lý phiếu nhập/thanh lý"
+        android:icon="@drawable/kho"/>
     <item
         android:id="@+id/nav_quan_ly_tai_khoan"
-        android:title="Tài khoản"/>
+        android:title="Tài khoản"
+        android:icon="@drawable/ic_user"/>
 </menu>

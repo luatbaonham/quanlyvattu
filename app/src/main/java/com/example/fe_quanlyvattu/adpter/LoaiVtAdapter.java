@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fe_quanlyvattu.R;
 import com.example.fe_quanlyvattu.activity.SualoaiVtActivity;
-import com.example.fe_quanlyvattu.model.Kho;
 import com.example.fe_quanlyvattu.model.LoaiVt;
 
 import java.util.List;

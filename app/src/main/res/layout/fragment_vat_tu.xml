@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
     android:background="#FFF5F5F5">
 
     <!-- Tiêu đề -->
@@ -63,20 +62,23 @@
 
             <Button
                 android:id="@+id/btn_loai"
-                android:layout_width="120dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:text="Loại"
+                android:layout_marginEnd="8dp"
                 android:backgroundTint="#FFFFC1CC"
+                android:text="Loại"
                 android:textColor="#FF000000"
-                android:layout_marginEnd="8dp"/>
+                android:drawableLeft="@drawable/ic_loai"/>
+
             <Button
                 android:id="@+id/btn_kho"
-                android:layout_width="120dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:text="Kho"
                 android:backgroundTint="#FFFFC1CC"
                 android:textColor="#FF000000"
-                android:layout_marginEnd="8dp"/>
+                android:layout_marginEnd="8dp"
+                android:drawableLeft="@drawable/kho"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
@@ -87,22 +89,16 @@
             android:layout_marginBottom="16dp"
             android:padding="12dp">
 
-            <Button
-                android:id="@+id/btn_don_vi"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:text="Đơn vị"
-                android:backgroundTint="#FFFFC1CC"
-                android:textColor="#FF000000"
-                android:drawableLeft="@drawable/ic_user"/>
+
 
             <Button
                 android:id="@+id/btn_trangthai"
-                android:layout_width="120dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:text="Trạng thái"
                 android:backgroundTint="#FFFFC1CC"
-                android:textColor="#FF000000"/>
+                android:textColor="#FF000000"
+                android:drawableLeft="@drawable/ic_trangthai"/>
         </LinearLayout>
     </LinearLayout>
 

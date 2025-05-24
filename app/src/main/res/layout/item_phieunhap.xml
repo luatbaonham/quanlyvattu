@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="#FFFFC1CC"
+    android:layout_marginBottom="8dp"
+    android:layout_marginTop="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+        <LinearLayout android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FF000000"
+                android:layout_marginBottom="4dp"
+                android:text="📋 Mã phiếu: " />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PN-2025-0023"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FF000000"
+                android:layout_marginBottom="4dp"
+                android:id="@+id/tvMaPhieu" />
+        </LinearLayout>
+
+        <LinearLayout android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FF000000"
+                android:layout_marginBottom="4dp"
+                android:text="🏷️ Tên vật tư: " />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Máy điều hòa"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FF000000"
+                android:layout_marginBottom="4dp"
+                android:id="@+id/tvTenVt" />
+        </LinearLayout>
+
+        <LinearLayout android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FF000000"
+                android:layout_marginBottom="4dp"
+                android:text="👤 Người tạo: " />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nguyễn Đình Luật"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FF000000"
+                android:layout_marginBottom="4dp"
+                android:id="@+id/tvNguoitao" />
+        </LinearLayout>
+
+        <LinearLayout android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FF000000"
+                android:layout_marginBottom="4dp"
+                android:text="📆 Ngày đặt: " />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="14/4/2025"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FF000000"
+                android:layout_marginBottom="4dp"
+                android:id="@+id/tvNgaydat" />
+        </LinearLayout>
+
+        <LinearLayout android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FF000000"
+                android:layout_marginBottom="4dp"
+                android:text="📦 Số lượng: " />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="223"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FF000000"
+                android:layout_marginBottom="4dp"
+                android:id="@+id/tvSoluong" />
+        </LinearLayout>
+
+        <LinearLayout android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FF000000"
+                android:layout_marginBottom="4dp"
+                android:text="🏢 Nhà cung cấp: " />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Công ty ABC"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FF000000"
+                android:layout_marginBottom="4dp"
+                android:id="@+id/tvNhaCC" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

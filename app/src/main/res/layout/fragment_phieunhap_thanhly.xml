@@ -12,7 +12,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quản lý Nhập/Xuất kho"
+        android:text="Quản lý phiếu nhập/thanh lý"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="#FF000000"
@@ -48,7 +48,7 @@
 
     <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewKho"
+        android:id="@+id/recyclerViewPhieuNhapTL"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
