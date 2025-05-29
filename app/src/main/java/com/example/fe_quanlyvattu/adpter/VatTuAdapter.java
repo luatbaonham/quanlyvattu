@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fe_quanlyvattu.R;
-import com.example.fe_quanlyvattu.model.VatTu;
+import com.example.fe_quanlyvattu.data.model.vattu.VatTu;
 
 import java.util.List;
 

@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fe_quanlyvattu.R;
-import com.example.fe_quanlyvattu.model.PhieuNhap;
+import com.example.fe_quanlyvattu.data.model.phieunhap.PhieuNhap;
 
 import java.util.List;
 
@@ -33,12 +33,12 @@ public class PhieuNhapAdapter extends RecyclerView.Adapter<PhieuNhapAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         PhieuNhap phieu = danhSach.get(position);
-        holder.tvMaPhieuNhap.setText(phieu.getMaPhieuNhap());
-        holder.tvTenVatTu.setText(phieu.getTenVatTu());
-        holder.tvNguoiTao.setText(phieu.getNguoiTao());
-        holder.tvNgayDat.setText(phieu.getNgayDat());
-        holder.tvSoLuong.setText(String.valueOf(phieu.getSoLuong()));
-        holder.tvNhaCungCap.setText(phieu.getNhaCungCap());
+        holder.tvMaPhieuNhap.setText(String.valueOf(phieu.getId()));
+//        holder.tvTenVatTu.setText(phieu.get());
+        holder.tvNguoiTao.setText(phieu.getRequestedUser().getUsername());
+        holder.tvNgayDat.setText(phieu.getDateOfOrder());
+//        holder.tvSoLuong.setText(String.valueOf(phieu.getSoLuong()));
+        holder.tvNhaCungCap.setText(phieu.getSupplier().getName());
     }
 
     @Override

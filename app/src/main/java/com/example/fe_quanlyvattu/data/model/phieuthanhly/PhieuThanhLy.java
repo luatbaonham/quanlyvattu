@@ -1,4 +1,4 @@
-package com.example.fe_quanlyvattu.model;
+package com.example.fe_quanlyvattu.data.model.phieuthanhly;
 
 public class PhieuThanhLy{
     private String maPhieuThanhLy;

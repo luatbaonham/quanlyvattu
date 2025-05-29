@@ -1,4 +1,4 @@
-package com.example.fe_quanlyvattu.model;
+package com.example.fe_quanlyvattu.data.model.vattu;
 
 public class VatTu {
     private String title;

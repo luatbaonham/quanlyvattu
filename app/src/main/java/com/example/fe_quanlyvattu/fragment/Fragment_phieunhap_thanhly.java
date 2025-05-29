@@ -16,9 +16,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fe_quanlyvattu.R;
 import com.example.fe_quanlyvattu.adpter.PhieuNhapAdapter;
+import com.example.fe_quanlyvattu.data.api.ApiCallback;
 import com.example.fe_quanlyvattu.data.api.ApiService;
 import com.example.fe_quanlyvattu.data.api.RetrofitClient;
-import com.example.fe_quanlyvattu.model.PhieuNhap;
+import com.example.fe_quanlyvattu.data.model.phieunhap.PhieuNhap;
+import com.example.fe_quanlyvattu.data.repository.PhieuNhapRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +44,7 @@ public class Fragment_phieunhap_thanhly extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_phieunhap_thanhly, container, false);
 
-        recyclerView.findViewById(R.id.recyclerViewPhieuNhapTL);
+        recyclerView = view.findViewById(R.id.recyclerViewPhieuNhapTL);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         edtTimKiem = view.findViewById(R.id.edtTimKiem);
@@ -64,33 +66,27 @@ public class Fragment_phieunhap_thanhly extends Fragment {
     }
 
     private void fetchPhieuNhapList() {
-        ApiService apiService = RetrofitClient
-                .getInstance(requireContext())
-                .create(ApiService.class);
+        PhieuNhapRepository repository = new PhieuNhapRepository(requireContext());
 
-        apiService.getPhieuNhapList().enqueue(new Callback<List<PhieuNhap>>() {
+        repository.getAllPhieuNhap(new ApiCallback<List<PhieuNhap>>() {
             @Override
-            public void onResponse(Call<List<PhieuNhap>> call, Response<List<PhieuNhap>> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    phieuNhapList.clear();
-                    phieuNhapList.addAll(response.body());
+            public void onSuccess(List<PhieuNhap> data) {
+                phieuNhapList.clear();
+                phieuNhapList.addAll(data);
 
-                    // Gán toàn bộ vào list lọc để hiển thị ban đầu
-                    locPhieuNhap.clear();
-                    locPhieuNhap.addAll(phieuNhapList);
+                locPhieuNhap.clear();
+                locPhieuNhap.addAll(phieuNhapList);
 
-                    adapter.notifyDataSetChanged();
-                } else {
-                    Toast.makeText(getContext(), "Không có dữ liệu phiếu nhập", Toast.LENGTH_SHORT).show();
-                }
+                adapter.notifyDataSetChanged();
             }
 
             @Override
-            public void onFailure(Call<List<PhieuNhap>> call, Throwable t) {
-                Toast.makeText(getContext(), "Lỗi khi tải phiếu nhập: " + t.getMessage(), Toast.LENGTH_LONG).show();
+            public void onError(String errorMessage) {
+                Toast.makeText(getContext(), "Lỗi: " + errorMessage, Toast.LENGTH_SHORT).show();
             }
         });
     }
+
 
     private void locPhieuNhap() {
         String keyword = edtTimKiem.getText().toString().trim().toLowerCase();
@@ -100,7 +96,9 @@ public class Fragment_phieunhap_thanhly extends Fragment {
             locPhieuNhap.addAll(phieuNhapList); // Hiển thị lại tất cả nếu không tìm
         } else {
             for (PhieuNhap pn : phieuNhapList) {
-                if (pn.getMaPhieuNhap() != null && pn.getMaPhieuNhap().toLowerCase().contains(keyword)) {
+                // Chuyển id (kiểu int) sang String rồi mới so sánh
+                String idStr = String.valueOf(pn.getId());
+                if (idStr.contains(keyword)) {
                     locPhieuNhap.add(pn);
                 }
             }
@@ -108,4 +106,5 @@ public class Fragment_phieunhap_thanhly extends Fragment {
 
         adapter.notifyDataSetChanged();
     }
+
 }
