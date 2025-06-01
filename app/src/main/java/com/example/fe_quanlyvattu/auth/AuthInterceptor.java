@@ -19,20 +19,30 @@ public class AuthInterceptor implements Interceptor {
     @NonNull
     @Override
     public Response intercept(Chain chain) throws IOException {
-        Request original = chain.request(); // Lấy request gốc mà app gửi đi
+        Request original = chain.request();
 
-        String token = sessionManager.getAccessToken(); // Lấy access token từ local (EncryptedSharedPreferences)
+        String accessToken = sessionManager.getAccessToken();  // nếu cần Authorization Bearer
+        String refreshToken = sessionManager.getRefreshToken();  // x-rf-token
+        String userCode = sessionManager.getUserCode();         // x-user-code
 
-        if (token != null) {
-            // Nếu có token, tạo request mới giống request cũ nhưng gắn thêm header Authorization
-            Request request = original.newBuilder()
-                    .header("Authorization", "Bearer " + token)
-                    .build();
+        Request.Builder requestBuilder = original.newBuilder()
+                .header("accept", "application/json");
 
-            return chain.proceed(request); // Gửi request mới (đã có token)
+        if (refreshToken != null && !refreshToken.isEmpty()) {
+            requestBuilder.header("x-rf-token", refreshToken);
         }
 
-        return chain.proceed(original); // Nếu không có token thì gửi request như cũ
-    }
+        if (userCode != null && !userCode.isEmpty()) {
+            requestBuilder.header("x-user-code", userCode);
+        }
 
+        // Nếu backend yêu cầu Authorization, bỏ comment dòng dưới
+        // if (accessToken != null && !accessToken.isEmpty()) {
+        //     requestBuilder.header("Authorization", "Bearer " + accessToken);
+        // }
+
+        Request request = requestBuilder.build();
+
+        return chain.proceed(request);
+    }
 }
