@@ -1,6 +1,7 @@
 package com.example.fe_quanlyvattu.data.model.phieunhap;
 
 public class RequestedUser {
+
     private String usercode;
     private String username;
     private String email;
