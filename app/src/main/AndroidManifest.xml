@@ -27,6 +27,11 @@
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.LoaiVtActivity" />
         <activity android:name=".activity.SualoaiVtActivity" />
+        <activity android:name=".activity.ActivityPhieuNhap" />
+        <activity android:name=".activity.ActivityPhieuMuon" />
+        <activity android:name=".activity.ActivityPhieuThanhLy" />
+        <activity android:name=".activity.ActivityPhieuChuyen" />
+        <activity android:name=".activity.TaoPhieuNhapActivity" />
     </application>
 
 </manifest>

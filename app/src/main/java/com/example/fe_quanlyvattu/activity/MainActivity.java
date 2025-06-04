@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.nav_home:
                     viewPager.setCurrentItem(2);
                     return true;
-                case R.id.nav_quan_ly_phieu_nhap:
+                case R.id.nav_quan_ly_phieu:
                     viewPager.setCurrentItem(3);
                     return true;
                 case R.id.nav_quan_ly_tai_khoan:
@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 case R.id.nav_quan_ly_vat_tu:
                     viewPager.setCurrentItem(1);
+
+
             }
             return false;
         });

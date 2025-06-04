@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import com.example.fe_quanlyvattu.fragment.FragmentQuanLyPhieu;
 import com.example.fe_quanlyvattu.fragment.Fragment_duyet_capphat;
 import com.example.fe_quanlyvattu.fragment.Fragment_home;
 import com.example.fe_quanlyvattu.fragment.Fragment_phieunhap_thanhly;
@@ -29,7 +30,7 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
             case 2:
                 return new Fragment_home();
             case 3:
-                return new Fragment_phieunhap_thanhly();
+                return new FragmentQuanLyPhieu();
             case 4:
                 return new Fragment_tai_khoan();
 

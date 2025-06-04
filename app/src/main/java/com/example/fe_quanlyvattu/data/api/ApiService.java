@@ -2,6 +2,7 @@ package com.example.fe_quanlyvattu.data.api;
 
 import com.example.fe_quanlyvattu.data.model.auth.LoginRequest;
 import com.example.fe_quanlyvattu.data.model.auth.LoginResponse;
+import com.example.fe_quanlyvattu.data.model.phieunhap.CreatePhieuNhapRequest;
 import com.example.fe_quanlyvattu.data.model.phieunhap.PhieuNhapResponse;
 import com.google.gson.JsonObject;
 
@@ -28,5 +29,6 @@ public interface ApiService {
 
     @GET("import-receipt") // đường dẫn backend
     Call<PhieuNhapResponse> getAllPhieuNhap();
-
+    @POST("import-receipt") // Đường dẫn đúng với backend bạn
+    Call<Void> taoPhieuNhap(@Body CreatePhieuNhapRequest request);
 }

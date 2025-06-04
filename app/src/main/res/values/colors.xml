@@ -75,4 +75,11 @@
     <color name="youtube_red">#FF0000</color>
     <color name="instagram_purple">#E1306C</color>
     <color name="whatsapp_green">#25D366</color>
+
+    <color name="purple_200">#BB86FC</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="purple_700">#3700B3</color>
+    <color name="teal_200">#03DAC5</color>
+    <color name="teal_700">#018786</color>
+
 </resources>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFF5F5F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Tiêu đề -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tạo Phiếu Nhập"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Nhà cung cấp ID -->
+        <EditText
+            android:id="@+id/edtSupplierId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhà cung cấp ID"
+            android:inputType="number" />
+
+        <!-- Mã vật tư -->
+        <EditText
+            android:id="@+id/edtItemCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mã vật tư" />
+
+        <!-- Giá -->
+        <EditText
+            android:id="@+id/edtItemPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Giá"
+            android:inputType="numberDecimal" />
+
+        <!-- Số lượng -->
+        <EditText
+            android:id="@+id/edtItemQuantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Số lượng"
+            android:inputType="number" />
+
+        <!-- Ngày đặt -->
+        <EditText
+            android:id="@+id/edtDateOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ngày đặt"
+            android:focusable="false"
+            android:clickable="true" />
+
+        <!-- Ngày nhận -->
+        <EditText
+            android:id="@+id/edtDateReceived"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ngày nhận"
+            android:focusable="false"
+            android:clickable="true" />
+
+        <!-- Ghi chú -->
+        <EditText
+            android:id="@+id/edtNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ghi chú" />
+
+        <!-- Nút gửi -->
+        <Button
+            android:id="@+id/btnTaoPhieuNhap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tạo Phiếu Nhập"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/whatsapp_green"
+            android:textColor="@android:color/white"/>
+
+    </LinearLayout>
+</ScrollView>
