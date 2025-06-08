@@ -4,12 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="8dp"
     app:cardCornerRadius="12dp"
     app:cardElevation="4dp"
     app:cardBackgroundColor="#FFFFC1CC"
     android:layout_marginBottom="8dp"
     android:layout_marginTop="5dp">
 
+    <!-- Phần nội dung chính -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -145,6 +147,47 @@
                 android:textColor="#FF000000"
                 android:layout_marginBottom="4dp"
                 android:id="@+id/tvNhaCC" />
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/dividerColor"
+            android:layout_marginVertical="8dp"/>
+
+        <!-- Phần nút hành động -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end">
+
+            <!-- Nút Sửa -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEdit"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="SỬA"
+                android:textColor="@color/primaryColor"
+                app:icon="@drawable/ic_edit"
+                app:iconTint="@color/primaryColor"
+                app:iconGravity="textStart"
+                app:iconPadding="4dp"/>
+
+            <!-- Nút Xóa -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDelete"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="XÓA"
+                android:textColor="@color/errorColor"
+                app:icon="@drawable/ic_delete"
+                app:iconTint="@color/errorColor"
+                app:iconGravity="textStart"
+                app:iconPadding="4dp"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
