@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
     private static Retrofit retrofit = null;
-    private static final String BASE_URL = "http://192.168.1.6:3055/v1/api/"; // Nếu chạy Android emulator
+    private static final String BASE_URL = "http://192.168.1.84:3055/v1/api/"; // Nếu chạy Android emulator
 
     public static Retrofit getInstance(Context context) {
         if (retrofit == null) {
