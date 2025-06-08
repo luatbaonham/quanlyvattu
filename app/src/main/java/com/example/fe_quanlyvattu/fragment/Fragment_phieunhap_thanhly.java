@@ -50,7 +50,7 @@ public class Fragment_phieunhap_thanhly extends Fragment {
         edtTimKiem = view.findViewById(R.id.edtTimKiem);
         btnLoc = view.findViewById(R.id.btntk);
 
-        adapter = new PhieuNhapAdapter(locPhieuNhap);
+        adapter = new PhieuNhapAdapter(getContext(), locPhieuNhap);
         recyclerView.setAdapter(adapter);
 
         fetchPhieuNhapList();

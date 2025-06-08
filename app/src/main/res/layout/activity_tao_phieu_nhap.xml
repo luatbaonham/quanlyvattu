@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
@@ -8,83 +9,191 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="24dp">
 
-        <!-- Tiêu đề -->
+        <!-- Title with icon -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tạo Phiếu Nhập"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="@color/material_light_green"/>
+        </LinearLayout>
+
+        <!-- Supplier Section -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tạo Phiếu Nhập"
-            android:textSize="24sp"
+            android:text="Thông tin nhà cung cấp"
+            android:textSize="16sp"
             android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="8dp"
+            android:textColor="#444"/>
 
-        <!-- Nhà cung cấp ID -->
-        <EditText
-            android:id="@+id/edtSupplierId"
+        <!-- Supplier ID with dropdown button -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nhà cung cấp ID"
-            android:inputType="number" />
+            android:layout_marginBottom="8dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <!-- Mã vật tư -->
-        <EditText
-            android:id="@+id/edtItemCode"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtSupplierId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Mã nhà cung cấp"
+                android:inputType="number"
+                android:maxLines="1"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Item Information Section -->
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Mã vật tư" />
+            android:text="Thông tin vật tư"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="#444"/>
 
-        <!-- Giá -->
-        <EditText
-            android:id="@+id/edtItemPrice"
+        <!-- Item Code -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Giá"
-            android:inputType="numberDecimal" />
+            android:layout_marginBottom="8dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <!-- Số lượng -->
-        <EditText
-            android:id="@+id/edtItemQuantity"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtItemCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Mã vật tư"
+                android:maxLines="1"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Price and Quantity in row -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Số lượng"
-            android:inputType="number" />
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
 
-        <!-- Ngày đặt -->
-        <EditText
-            android:id="@+id/edtDateOrder"
+            <!-- Price -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtItemPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Giá (VNĐ)"
+                    android:inputType="numberDecimal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Quantity -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtItemQuantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Số lượng"
+                    android:inputType="number"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <!-- Date Section -->
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ngày đặt"
-            android:focusable="false"
-            android:clickable="true" />
+            android:text="Thông tin ngày"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="#444"/>
 
-        <!-- Ngày nhận -->
-        <EditText
-            android:id="@+id/edtDateReceived"
+        <!-- Order Date -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ngày nhận"
-            android:focusable="false"
-            android:clickable="true" />
+            android:layout_marginBottom="8dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <!-- Ghi chú -->
-        <EditText
-            android:id="@+id/edtNote"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtDateOrder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ngày đặt"
+                android:focusable="false"
+                android:clickable="true"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Received Date -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ghi chú" />
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <!-- Nút gửi -->
-        <Button
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtDateReceived"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ngày nhận"
+                android:focusable="false"
+                android:clickable="true"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Notes -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtNote"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:hint="Ghi chú"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:maxLines="5"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Submit Button -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnTaoPhieuNhap"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:text="Tạo Phiếu Nhập"
-            android:layout_marginTop="24dp"
-            android:backgroundTint="@color/whatsapp_green"
-            android:textColor="@android:color/white"/>
-
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            app:cornerRadius="8dp"
+            app:backgroundTint="@color/whatsapp_green"
+            app:iconTint="@android:color/white"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"/>
     </LinearLayout>
 </ScrollView>

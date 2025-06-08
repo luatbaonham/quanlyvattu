@@ -1,38 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/layout_quanly_phieu"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F5F5F5"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="#F0F0F0">
 
-    <!-- Tiêu đề -->
-    <TextView
+    <!-- Header với icon -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Quản lý Phiếu"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        android:textColor="#333333"
-        android:gravity="center"
-        android:paddingBottom="16dp" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:background="@android:color/white"
+        android:elevation="4dp"
+        android:layout_marginBottom="12dp"
+        android:paddingHorizontal="16dp">
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@android:drawable/ic_menu_agenda"
+            app:tint="@color/gradient_orange_end" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quản lý phiếu"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/gradient_orange_end"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
 
     <!-- Danh sách phiếu -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewPhieu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:background="@android:color/white"
-        android:padding="8dp"
-        android:elevation="2dp" />
-
-    <!-- Nếu không dùng fragment, có thể ẩn phần này -->
-    <FrameLayout
-        android:id="@+id/fragment_phieu_container"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
-        android:visibility="gone" />
+        android:layout_weight="1"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewPhieu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12dp"
+            android:clipToPadding="false" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Footer tổng -->
+    <TextView
+        android:id="@+id/txtTongPhieu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tổng: 4 loại phiếu"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:padding="12dp"
+        android:layout_marginTop="8dp"
+        android:background="#FFFDE7"
+        android:elevation="2dp"/>
 </LinearLayout>

@@ -39,7 +39,7 @@ public class ActivityPhieuNhap extends AppCompatActivity {
         btnTimKiem = findViewById(R.id.btntk);
 
         // Setup RecyclerView
-        adapter = new PhieuNhapAdapter(new ArrayList<>());
+        adapter = new PhieuNhapAdapter(this, new ArrayList<>());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

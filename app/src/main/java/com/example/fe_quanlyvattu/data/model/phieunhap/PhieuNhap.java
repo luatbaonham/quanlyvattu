@@ -1,5 +1,7 @@
 package com.example.fe_quanlyvattu.data.model.phieunhap;
 
+import java.util.Date;
+
 public class PhieuNhap {
     private int id;
     private String dateOfOrder;
