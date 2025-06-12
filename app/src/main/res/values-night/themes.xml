@@ -15,8 +15,11 @@
     </style>
 
     <style name="Theme.FE_QUANLYVATTU" parent="Base.Theme.FE_QUANLYVATTU" />
-    <style name="ScreenBackground"><item name="android:background">@color/black</item></style>
+    <style name="ScreenBackground"><item name="android:background">@color/material_blue_grey</item></style>
     <style name="CardBackground"><item name="android:background">@color/dark_grey</item></style>
     <style name="TextColor"><item name="android:textColor">@color/white</item> </style>
     <style name="IconStyle"><item name="android:tint">@color/white</item></style>
+    <style name="ItemStyle"><item name="android:background">@color/material_grey</item></style>
+    <style name="buttonStyle"><item name="android:backgroundTint">@color/dark_grey</item></style>
+    <style name="edtStyle"><item name="android:background">@color/material_teal</item></style>
 </resources>

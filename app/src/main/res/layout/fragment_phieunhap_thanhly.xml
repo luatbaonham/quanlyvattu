@@ -6,16 +6,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#FFF5F5F5">
+    style="@style/ScreenBackground">
 
     <!-- Tiêu đề -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quản lý phiếu nhập/thanh lý"
+        android:text="Quản lý phiếu nhập"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="#FF000000"
+        style="@style/TextColor"
         android:layout_gravity="center"
         android:layout_marginBottom="16dp"/>
 
@@ -32,7 +32,7 @@
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:background="@android:drawable/editbox_background"
+            style="@style/edtStyle"
             android:hint="Tìm kiếm..."
             android:padding="8dp"/>
 
@@ -42,7 +42,7 @@
             android:layout_height="50dp"
             android:text="Search"
             android:textColor="@color/black"
-            android:backgroundTint="@color/whatsapp_green"
+            style="@style/buttonStyle"
             android:layout_marginStart="8dp"/>
     </LinearLayout>
 

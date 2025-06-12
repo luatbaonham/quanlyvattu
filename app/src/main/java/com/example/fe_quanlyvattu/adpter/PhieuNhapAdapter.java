@@ -2,7 +2,9 @@ package com.example.fe_quanlyvattu.adpter;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -158,17 +160,28 @@ public class PhieuNhapAdapter extends RecyclerView.Adapter<PhieuNhapAdapter.View
     }
 
     private void showItemDialog(Context context, List<Item> items) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        Dialog dialog = new Dialog(context);
         View dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_item_list, null);
-        RecyclerView recyclerView = dialogView.findViewById(R.id.rvItems);
 
+        RecyclerView recyclerView = dialogView.findViewById(R.id.rvItems);
         ItemDialogAdapter adapter = new ItemDialogAdapter(items);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(adapter);
 
-        builder.setView(dialogView);
-        builder.setTitle("Danh sách vật tư");
-        builder.setPositiveButton("Đóng", (dialog, which) -> dialog.dismiss());
-        builder.create().show();
+        // Gắn layout vào dialog
+        dialog.setContentView(dialogView);
+
+        // Nền trong suốt để bo góc đẹp
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+        // Gắn animation style
+        dialog.getWindow().getAttributes().windowAnimations = R.style.SlideDownDialogTheme;
+
+        // Nếu muốn thêm nút Đóng:
+        Button btnClose = dialogView.findViewById(R.id.btnClose); // Bạn cần có nút này trong layout
+        btnClose.setOnClickListener(v -> dialog.dismiss());
+
+        dialog.show();
     }
+
 }

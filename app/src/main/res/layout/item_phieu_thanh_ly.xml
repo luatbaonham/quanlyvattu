@@ -6,7 +6,6 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="12dp"
     app:cardElevation="4dp"
-    app:cardBackgroundColor="#FFFFC1CC"
     android:layout_marginBottom="8dp"
     android:layout_marginTop="5dp">
 
@@ -14,9 +13,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+        style="@style/ItemStyle">
 
-    <!-- Mã phiếu -->
         <LinearLayout android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -26,7 +25,7 @@
                 android:text="📄 Mã phiếu: "
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="#FF000000"
+                style="@style/TextColor"
                 android:layout_marginBottom="4dp"/>
             <TextView
                 android:id="@+id/tvMaPhieuTL"
@@ -35,7 +34,7 @@
                 android:text="PTL001"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="#FF000000"
+                style="@style/TextColor"
                 android:layout_marginBottom="4dp"/>
         </LinearLayout>
 
@@ -49,7 +48,7 @@
                 android:text="🗓️ Ngày thanh lý: "
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="#FF000000"
+                style="@style/TextColor"
                 android:layout_marginBottom="4dp"/>
             <TextView
                 android:id="@+id/tvNgayThanhLy"
@@ -58,7 +57,7 @@
                 android:text="18/05/2025"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="#FF000000"
+                style="@style/TextColor"
                 android:layout_marginBottom="4dp"/>
         </LinearLayout>
 
@@ -72,7 +71,7 @@
                 android:text="💥 Lý do: "
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="#FF000000"
+                style="@style/TextColor"
                 android:layout_marginBottom="4dp"/>
             <TextView
                 android:id="@+id/tvLyDo"
@@ -81,7 +80,7 @@
                 android:text="Bị vỡ trong quá trình lắp đặt"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="#FF000000"
+                style="@style/TextColor"
                 android:layout_marginBottom="4dp"/>
         </LinearLayout>
 
@@ -95,7 +94,7 @@
                 android:text="✅ Trạng thái: "
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="#FF000000"
+                style="@style/TextColor"
                 android:layout_marginBottom="4dp"/>
             <TextView
                 android:id="@+id/tvTrangThai"
@@ -118,7 +117,7 @@
                 android:text="💰 Giá thanh lý: "
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="#FF000000"
+                style="@style/TextColor"
                 android:layout_marginBottom="4dp"/>
             <TextView
                 android:id="@+id/tvGiaThanhLy"
@@ -127,7 +126,7 @@
                 android:text="2.450.000.000 đ"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="#FF000000"
+                style="@style/TextColor"
                 android:layout_marginBottom="4dp"/>
         </LinearLayout>
 
@@ -141,7 +140,7 @@
                 android:text="📝 Người tạo phiếu: "
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="#FF000000"
+                style="@style/TextColor"
                 android:layout_marginBottom="4dp"/>
             <TextView
                 android:id="@+id/tvGhiChu"
@@ -150,7 +149,7 @@
                 android:text="Hoàng Thi"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="#FF000000"
+                style="@style/TextColor"
                 android:layout_marginBottom="4dp"/>
         </LinearLayout>
     </LinearLayout>
