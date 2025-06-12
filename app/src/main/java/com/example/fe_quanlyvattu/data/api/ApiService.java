@@ -2,6 +2,7 @@ package com.example.fe_quanlyvattu.data.api;
 
 import com.example.fe_quanlyvattu.data.model.auth.LoginRequest;
 import com.example.fe_quanlyvattu.data.model.auth.LoginResponse;
+import com.example.fe_quanlyvattu.data.model.loaivattu.NhomVtResponse;
 import com.example.fe_quanlyvattu.data.model.phieumuon.PhieuMuonResponse;
 import com.example.fe_quanlyvattu.data.model.phieunhap.CapNhatTrangThaiRequest;
 import com.example.fe_quanlyvattu.data.model.phieunhap.CreatePhieuNhapRequest;
@@ -43,6 +44,8 @@ public interface ApiService {
     Call<Void> taoPhieuMuon(@Body CreatePhieuNhapRequest request);
     @GET("room")
     Call<PhongResponse> getAllPhong();
+    @GET("group-equipment")
+    Call<NhomVtResponse> getAllNomVT();
     @PUT("import-receipt/{id}/status")
     Call<PhieuNhapUpdateResponse> updateImportReceiptStatus(
             @Path("id") int importReceiptId,

@@ -1,5 +1,6 @@
 package com.example.fe_quanlyvattu.adpter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -15,15 +16,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fe_quanlyvattu.R;
 import com.example.fe_quanlyvattu.activity.SualoaiVtActivity;
-import com.example.fe_quanlyvattu.model.LoaiVt;
+import com.example.fe_quanlyvattu.data.model.loaivattu.NhomVt;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LoaiVtAdapter extends RecyclerView.Adapter<LoaiVtAdapter.LoaiVtViewHolder> {
-    private List<LoaiVt> loaiVtList;
+    private List<NhomVt> loaiVtList;
     private Context context;
-    public LoaiVtAdapter(List<LoaiVt> loaiVtList, Context context) {
-        this.loaiVtList = loaiVtList;
+
+    public LoaiVtAdapter(List<NhomVt> loaiVtList, Context context) {
+        this.loaiVtList = loaiVtList != null ? loaiVtList : new ArrayList<>();
         this.context = context;
     }
 
@@ -34,29 +37,34 @@ public class LoaiVtAdapter extends RecyclerView.Adapter<LoaiVtAdapter.LoaiVtView
         return new LoaiVtViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
-    public void onBindViewHolder(@NonNull LoaiVtAdapter.LoaiVtViewHolder holder, int position) {
-        LoaiVt loaiVt = loaiVtList.get(position);
-        holder.ten.setText(loaiVt.getTenloai());
-        holder.mota.setText(loaiVt.getMota());
-        holder.soluong.setText(String.valueOf(loaiVt.getSoluong()));// chuyển sang int
-        holder.lancapnhat.setText(loaiVt.getLancapnhat());
+    public void onBindViewHolder(@NonNull LoaiVtViewHolder holder, int position) {
+        NhomVt loaiVt = loaiVtList.get(position);
+        holder.ten.setText(loaiVt.getName());
+        holder.mota.setText(loaiVt.getDescription());
+        holder.soluong.setText(
+                loaiVt.getEquipmentStatusCounts().getAvailable() +
+                        loaiVt.getEquipmentStatusCounts().getLiquidation() + " " +loaiVt.getUnitOfMeasure().getName()
+        );
+        holder.hang.setText(
+                loaiVt.getManufacturer().getName()
+        );
+        holder.lancapnhat.setText(loaiVt.getUpdatedAt());
+        //holder.lancapnhat.setText();
 
-        // Sửa
+
         holder.btnSua.setOnClickListener(v -> {
             Intent intent = new Intent(context, SualoaiVtActivity.class);
-            intent.putExtra("tenloai", loaiVt.getTenloai());
-            intent.putExtra("mota", loaiVt.getMota());
-            intent.putExtra("soluong", loaiVt.getSoluong());
-            intent.putExtra("lancapnhat", loaiVt.getLancapnhat());
+            intent.putExtra("tenloai", loaiVt.getName());
+            intent.putExtra("mota", loaiVt.getDescription());
             intent.putExtra("position", position);
 
-            // context phải là Activity mới gọi startActivityForResult được
             if (context instanceof Activity) {
                 ((Activity) context).startActivityForResult(intent, 1001);
             }
         });
-        // Xóa
+
         holder.btnXoa.setOnClickListener(v -> {
             new AlertDialog.Builder(context)
                     .setTitle("Xác nhận xóa")
@@ -77,10 +85,12 @@ public class LoaiVtAdapter extends RecyclerView.Adapter<LoaiVtAdapter.LoaiVtView
     }
 
     public class LoaiVtViewHolder extends RecyclerView.ViewHolder {
-        TextView ten, mota, soluong, lancapnhat;
+        TextView ten, mota, soluong, lancapnhat, hang;
         Button btnSua, btnXoa;
+
         public LoaiVtViewHolder(@NonNull View itemView) {
             super(itemView);
+            hang = itemView.findViewById(R.id.hang);
             ten = itemView.findViewById(R.id.tenloai);
             mota = itemView.findViewById(R.id.mota);
             soluong = itemView.findViewById(R.id.soluong);
@@ -89,9 +99,14 @@ public class LoaiVtAdapter extends RecyclerView.Adapter<LoaiVtAdapter.LoaiVtView
             btnXoa = itemView.findViewById(R.id.btnXoa);
         }
     }
-    // Hàm để cập nhật lại item sau khi sửa
-    public void updateItem(int position, LoaiVt newLoaiVt) {
+
+    public void updateItem(int position, NhomVt newLoaiVt) {
         loaiVtList.set(position, newLoaiVt);
         notifyItemChanged(position);
+    }
+
+    public void setLoaiVtList(List<NhomVt> loaiVtList) {
+        this.loaiVtList = loaiVtList != null ? loaiVtList : new ArrayList<>();
+        notifyDataSetChanged(); // ✅ Cập nhật lại toàn bộ danh sách
     }
 }
