@@ -12,6 +12,7 @@ import com.example.fe_quanlyvattu.R;
 import com.example.fe_quanlyvattu.auth.SessionManager;
 import com.example.fe_quanlyvattu.data.model.common.Metadata;
 import com.example.fe_quanlyvattu.data.repository.AuthRepository;
+import androidx.appcompat.app.AppCompatDelegate;
 
 public class activity_dang_nhap extends AppCompatActivity {
     private EditText editTextUsername, editTextPassword;
@@ -21,6 +22,8 @@ public class activity_dang_nhap extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dangnhap);
 

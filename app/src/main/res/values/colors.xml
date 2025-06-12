@@ -45,6 +45,9 @@
     <color name="dark_text_primary">#E0E0E0</color>
     <color name="dark_text_secondary">#A0A0A0</color>
     <color name="dark_divider">#424242</color>
+    <color name="dark_grey">#ff424242</color>
+
+
 
     <!-- 4. Màu trạng thái (State Colors) -->
     <color name="success">#4CAF50</color>

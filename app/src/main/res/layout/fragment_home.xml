@@ -3,40 +3,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:style="http://schemas.android.com/tools"
     android:background="#121212">
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/light_pink">
-
-        <!-- Header -->
+        style="@style/CardBackground">
+        <!-- 4 Icon Buttons -->
         <LinearLayout
             android:id="@+id/header_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@color/light_yellow"
+            style="@style/CardBackground"
             android:orientation="vertical"
             android:padding="16dp"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TextColor"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Buổi tối vui vẻ!"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchMode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:thumb="@drawable/thumb"
+                    app:track="@drawable/track" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Buổi tối vui vẻ!"
-                android:textColor="@color/primary_red"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Tên Admin"
                 android:layout_marginTop="5dp"
-                android:textColor="@color/primary_red"
+                android:text="Tên Admin"
+                style="@style/TextColor"
                 android:textSize="14sp" />
 
             <EditText
@@ -44,12 +59,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="12dp"
-                android:hint="Tìm kiếm..."
                 android:background="@android:drawable/edit_text"
-                android:padding="8dp"/>
+                android:hint="Tìm kiếm..."
+                android:padding="8dp" />
         </LinearLayout>
 
-        <!-- 4 Icon Buttons -->
         <LinearLayout
             android:id="@+id/function_buttons"
             android:layout_width="0dp"
@@ -74,6 +88,7 @@
 
                 <ImageView
                     android:src="@drawable/ic_user"
+                    style="@style/IconStyle"
                     android:layout_width="32dp"
                     android:layout_height="32dp" />
 
@@ -83,7 +98,9 @@
                     android:text="Loại VT"
                     android:layout_marginTop="8dp"
                     android:textStyle="bold"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    style="@style/TextColor"
+                    />
             </LinearLayout>
             <!-- button 2-->
             <LinearLayout
@@ -97,7 +114,8 @@
                 <ImageView
                     android:src="@drawable/ic_user"
                     android:layout_width="32dp"
-                    android:layout_height="32dp" />
+                    android:layout_height="32dp"
+                    style="@style/IconStyle"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -105,7 +123,8 @@
                     android:text="Loại VT"
                     android:layout_marginTop="8dp"
                     android:textStyle="bold"
-                    android:textSize="16sp"  />
+                    android:textSize="16sp"
+                    style="@style/TextColor"/>
             </LinearLayout>
             <!-- button 3-->
             <LinearLayout
@@ -119,7 +138,8 @@
                 <ImageView
                     android:src="@drawable/ic_user"
                     android:layout_width="32dp"
-                    android:layout_height="32dp" />
+                    android:layout_height="32dp"
+                    style="@style/IconStyle"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -127,7 +147,8 @@
                     android:text="Loại VT"
                     android:layout_marginTop="8dp"
                     android:textStyle="bold"
-                    android:textSize="16sp"  />
+                    android:textSize="16sp"
+                    style="@style/TextColor"/>
             </LinearLayout>
             <!-- button 4-->
             <LinearLayout
@@ -139,9 +160,10 @@
                 android:gravity="center">
 
                 <ImageView
-                    android:src="@drawable/ic_user"
                     android:layout_width="32dp"
-                    android:layout_height="32dp" />
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_user"
+                    style="@style/IconStyle"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -149,9 +171,11 @@
                     android:text="Loại VT"
                     android:layout_marginTop="8dp"
                     android:textStyle="bold"
-                    android:textSize="16sp"  />
+                    android:textSize="16sp"
+                    style="@style/TextColor"/>
             </LinearLayout>
         </LinearLayout>
+
         <!-- Tiêu đề mục Báo cáo -->
         <TextView
             android:id="@+id/title_bao_cao"
@@ -163,7 +187,8 @@
             android:layout_marginTop="24dp"
             app:layout_constraintTop_toBottomOf="@id/function_buttons"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp"/>
+            android:layout_marginStart="16dp"
+            style="@style/TextColor"/>
         <!-- RecyclerView cho Báo cáo -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_bao_cao"
@@ -189,7 +214,8 @@
             android:layout_marginTop="10dp"
             app:layout_constraintTop_toBottomOf="@id/recycler_bao_cao"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp"/>
+            android:layout_marginStart="16dp"
+            style="@style/TextColor"/>
 
         <!-- RecyclerView cho Đề xuất -->
         <androidx.recyclerview.widget.RecyclerView

@@ -8,9 +8,12 @@ import com.example.fe_quanlyvattu.auth.SessionManager;
 import com.example.fe_quanlyvattu.data.api.ApiCallback;
 import com.example.fe_quanlyvattu.data.api.ApiService;
 import com.example.fe_quanlyvattu.data.api.RetrofitClient;
+import com.example.fe_quanlyvattu.data.model.phieunhap.CapNhatTrangThaiRequest;
 import com.example.fe_quanlyvattu.data.model.phieunhap.PhieuNhap;
 import com.example.fe_quanlyvattu.data.model.phieunhap.PhieuNhapResponse;
+import com.example.fe_quanlyvattu.data.model.phieunhap.PhieuNhapUpdateResponse;
 import com.example.fe_quanlyvattu.data.model.phieunhap.PhieuNhapWrapper;
+import com.example.fe_quanlyvattu.data.model.phieunhap.UpdateMetadata;
 
 import java.util.List;
 
@@ -45,4 +48,24 @@ public class PhieuNhapRepository {
             }
         });
     }
+
+    public void capNhatTrangThai(ApiCallback<PhieuNhapUpdateResponse> callback, CapNhatTrangThaiRequest request, Integer id) {
+        apiService.updateImportReceiptStatus(id, request).enqueue(new Callback<PhieuNhapUpdateResponse>() {
+            @Override
+            public void onResponse(Call<PhieuNhapUpdateResponse> call, Response<PhieuNhapUpdateResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    callback.onSuccess(response.body());
+                } else {
+                    callback.onError("Lỗi cập nhật trạng thái phiếu nhập");
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PhieuNhapUpdateResponse> call, Throwable t) {
+                Log.e("PhieuNhapRepository", "Lỗi cập nhật trạng thái phiếu nhập", t);
+            }
+        });
+    }
+
 }

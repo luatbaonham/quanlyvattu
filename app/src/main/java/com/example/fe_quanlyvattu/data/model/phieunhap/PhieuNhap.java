@@ -1,6 +1,7 @@
 package com.example.fe_quanlyvattu.data.model.phieunhap;
 
 import java.util.Date;
+import java.util.List;
 
 public class PhieuNhap {
     private int id;
@@ -11,8 +12,9 @@ public class PhieuNhap {
     private String note;
     private Supplier supplier;
     private RequestedUser requestedUser;
+    private List<Item> items;
 
-    public PhieuNhap(int id, String dateOfOrder, String dateOfReceived, String dateOfActualReceived, String status, String note, Supplier supplier, RequestedUser requestedUser) {
+    public PhieuNhap(int id, String dateOfOrder, String dateOfReceived, String dateOfActualReceived, String status, String note, Supplier supplier, RequestedUser requestedUser, List<Item> items ) {
         this.id = id;
         this.dateOfOrder = dateOfOrder;
         this.dateOfReceived = dateOfReceived;
@@ -21,6 +23,7 @@ public class PhieuNhap {
         this.note = note;
         this.supplier = supplier;
         this.requestedUser = requestedUser;
+        this.items = items;
     }
 
     public int getId() {
@@ -85,5 +88,12 @@ public class PhieuNhap {
 
     public void setRequestedUser(RequestedUser requestedUser) {
         this.requestedUser = requestedUser;
+    }
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
     }
 }
