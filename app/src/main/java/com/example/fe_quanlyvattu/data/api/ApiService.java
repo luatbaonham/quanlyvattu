@@ -2,8 +2,10 @@ package com.example.fe_quanlyvattu.data.api;
 
 import com.example.fe_quanlyvattu.data.model.auth.LoginRequest;
 import com.example.fe_quanlyvattu.data.model.auth.LoginResponse;
+import com.example.fe_quanlyvattu.data.model.phieumuon.PhieuMuonResponse;
 import com.example.fe_quanlyvattu.data.model.phieunhap.CreatePhieuNhapRequest;
 import com.example.fe_quanlyvattu.data.model.phieunhap.PhieuNhapResponse;
+import com.example.fe_quanlyvattu.data.model.phong.PhongResponse;
 import com.google.gson.JsonObject;
 
 import retrofit2.Call;
@@ -31,4 +33,11 @@ public interface ApiService {
     Call<PhieuNhapResponse> getAllPhieuNhap();
     @POST("import-receipt") // Đường dẫn đúng với backend bạn
     Call<Void> taoPhieuNhap(@Body CreatePhieuNhapRequest request);
+    @GET("borrow-receipt")
+    Call<PhieuMuonResponse> getAllPhieuMuon();
+    @POST("borrow-receipt")
+    Call<Void> taoPhieuMuon(@Body CreatePhieuNhapRequest request);
+    @GET("room")
+    Call<PhongResponse> getAllPhong();
+
 }

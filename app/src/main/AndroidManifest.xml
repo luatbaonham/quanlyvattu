@@ -32,6 +32,7 @@
         <activity android:name=".activity.ActivityPhieuThanhLy" />
         <activity android:name=".activity.ActivityPhieuChuyen" />
         <activity android:name=".activity.TaoPhieuNhapActivity" />
+        <activity android:name=".activity.TaoPhieuMuonActivity" />
     </application>
 
 </manifest>
