@@ -3,6 +3,7 @@ package com.example.fe_quanlyvattu.data.api;
 import com.example.fe_quanlyvattu.data.model.auth.LoginRequest;
 import com.example.fe_quanlyvattu.data.model.auth.LoginResponse;
 import com.example.fe_quanlyvattu.data.model.kho.EquipmentResponse;
+import com.example.fe_quanlyvattu.data.model.phongban.PhongBanResponse;
 import com.example.fe_quanlyvattu.data.model.vattu.donvitinh.DonViTinhResponse;
 import com.example.fe_quanlyvattu.data.model.vattu.hang.HangResponse;
 import com.example.fe_quanlyvattu.data.model.vattu.kieu.KieuResponse;
@@ -64,5 +65,7 @@ public interface ApiService {
     Call<HangResponse> getAllHang();
     @GET("v1/api/equipment/room/{roomId}")
     Call<EquipmentResponse> getEquipmentsByRoomId(@Path("roomId") String roomId);
+    @GET("v1/api/department")
+    Call<PhongBanResponse> getAllPhongBan();
 
 }
