@@ -73,18 +73,18 @@ public class MainActivity extends AppCompatActivity {
                 bottomNavigationView.getMenu().getItem(position).setChecked(true);
             }
         });
-        KieuRepository kieuRepository = new KieuRepository(this);
-        kieuRepository.getAllKieu(new ApiCallback<>() {
-            @Override
-            public void onSuccess(List<Kieu> result) {
-                // Không làm gì cả
-            }
-
-            @Override
-            public void onError(String errorMessage) {
-                // Không xử lý gì cả
-            }
-        });
+//        KieuRepository kieuRepository = new KieuRepository(this);
+//        kieuRepository.getAllKieu(new ApiCallback<>() {
+//            @Override
+//            public void onSuccess(List<Kieu> result) {
+//                // Không làm gì cả
+//            }
+//
+//            @Override
+//            public void onError(String errorMessage) {
+//                // Không xử lý gì cả
+//            }
+//        });
 
 
     }

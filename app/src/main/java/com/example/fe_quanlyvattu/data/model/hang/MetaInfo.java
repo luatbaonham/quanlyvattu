@@ -1,4 +1,4 @@
-package com.example.fe_quanlyvattu.data.model.kieu;
+package com.example.fe_quanlyvattu.data.model.hang;
 
 public class MetaInfo {
     private int currentPage;
