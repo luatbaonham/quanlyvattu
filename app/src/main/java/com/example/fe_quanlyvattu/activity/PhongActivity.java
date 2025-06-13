@@ -41,8 +41,8 @@ public class PhongActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        phongBanId = getIntent().getStringExtra("phongban_id");
-        String phongBanName = getIntent().getStringExtra("phongban_name");
+        phongBanId = getIntent().getStringExtra("departmentID");
+        String phongBanName = getIntent().getStringExtra("departmentName");
 
         setTitle("Phòng thuộc: " + phongBanName);
 
@@ -58,6 +58,7 @@ public class PhongActivity extends AppCompatActivity {
                 phongList.clear();
                 phongList.addAll(data);
                 adapter.updateList(data);
+                adapter.notifyDataSetChanged();
             }
 
             @Override
