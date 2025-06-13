@@ -63,9 +63,9 @@ public interface ApiService {
 
     @GET("equipment-manufacturer")
     Call<HangResponse> getAllHang();
-    @GET("v1/api/equipment/room/{roomId}")
+    @GET("equipment/room/{roomId}")
     Call<EquipmentResponse> getEquipmentsByRoomId(@Path("roomId") String roomId);
-    @GET("v1/api/department")
+    @GET("department")
     Call<PhongBanResponse> getAllPhongBan();
 
 }

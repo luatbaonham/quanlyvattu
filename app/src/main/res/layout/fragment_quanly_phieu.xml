@@ -7,31 +7,17 @@
     android:padding="16dp"
     style="@style/ScreenBackground">
 
-    <!-- Header với icon -->
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:padding="8dp"
-        android:elevation="4dp"
-        android:layout_marginBottom="12dp"
-        android:paddingHorizontal="16dp">
+        android:text="📄 Quản lý phiếu"
+        android:textSize="28sp"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        style="@style/TextColor"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="12dp"/>
 
-        <ImageView
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:src="@android:drawable/ic_menu_agenda"
-            style="@style/IconStyle"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Quản lý phiếu"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            style="@style/TextColor"
-            android:layout_marginStart="8dp"/>
-    </LinearLayout>
 
     <!-- Danh sách phiếu -->
     <androidx.cardview.widget.CardView

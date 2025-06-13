@@ -35,6 +35,7 @@
         <activity android:name=".activity.DonViTinhActivity" />
         <activity android:name=".activity.HangActivity"/>
         <activity android:name=".activity.KieuActivity" />
+        <activity android:name=".activity.PhongActivity" />
     </application>
 
 </manifest>

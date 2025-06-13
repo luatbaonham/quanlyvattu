@@ -43,8 +43,7 @@ public class LoaiVtAdapter extends RecyclerView.Adapter<LoaiVtAdapter.LoaiVtView
         holder.ten.setText(loaiVt.getName());
         holder.mota.setText(loaiVt.getDescription());
         holder.soluong.setText(
-                loaiVt.getEquipmentStatusCounts().getAvailable() +
-                        loaiVt.getEquipmentStatusCounts().getLiquidation() + " " +loaiVt.getUnitOfMeasure().getName()
+                loaiVt.getEquipmentStatusCounts().getAvailable() + " " +loaiVt.getUnitOfMeasure().getName()
         );
         holder.hang.setText(
                 loaiVt.getManufacturer().getName()

@@ -1,27 +1,18 @@
 package com.example.fe_quanlyvattu.data.model.phongban;
 
 public class Department {
-    private int id;
+    private String id;
     private String name;
     private String notes;
     private String status;
     private String createdAt;
     private String updatedAt;
 
-    public Department(int id, String name, String notes, String status, String createdAt, String updatedAt) {
-        this.id = id;
-        this.name = name;
-        this.notes = notes;
-        this.status = status;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
-
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -63,5 +54,15 @@ public class Department {
 
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Department(String id, String name, String notes, String status, String createdAt, String updatedAt) {
+        this.id = id;
+        this.name = name;
+        this.notes = notes;
+        this.status = status;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+
     }
 }

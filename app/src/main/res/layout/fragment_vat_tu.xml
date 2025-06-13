@@ -5,29 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFF5F5F5">
+    style="@style/ScreenBackground">
 
-    <!-- Tiêu đề -->
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        style="@style/ItemStyle"
-        android:elevation="4dp"
-        android:layout_marginBottom="12dp"
-        android:paddingHorizontal="16dp">
+        android:gravity="center"
+        android:text="🧰 Quản lý vật tư"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        style="@style/TextColor"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"/>
 
-        <TextView
-            style="@style/TextColor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="🧰 Quản lý vật tư"
-            android:textSize="28sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -41,7 +31,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="12dp"
-            android:clipToPadding="false" />
+            android:clipToPadding="false"
+            style="@style/ScreenBackground"/>
     </androidx.cardview.widget.CardView>
 
 

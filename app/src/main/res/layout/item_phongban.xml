@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="6dp"
+    android:foreground="?attr/selectableItemBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        style="@style/ItemStyle">
+
+        <!-- Tên phòng ban -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="6dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🏢 Tên phòng ban: "
+                android:textStyle="bold"
+                style="@style/TextColor"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvTenPhongBan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phòng Kỹ thuật"
+                style="@style/TextColor"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Trạng thái -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="6dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📌 Trạng thái: "
+                android:textStyle="bold"
+                style="@style/TextColor"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvTrangThai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đang hoạt động"
+                style="@style/TextColor"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Ngày tạo -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="6dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📅 Ngày tạo: "
+                android:textStyle="bold"
+                style="@style/TextColor"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvNgayTao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2024-01-01"
+                style="@style/TextColor"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Ghi chú -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📝 Ghi chú: "
+                android:textStyle="bold"
+                style="@style/TextColor"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvGhiChu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phụ trách thiết bị kỹ thuật"
+                style="@style/TextColor"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
