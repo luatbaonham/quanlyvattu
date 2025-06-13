@@ -8,107 +8,114 @@
     android:background="#FFF5F5F5">
 
     <!-- Tiêu đề -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Quản lý vật tư"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="#FF000000"
-        android:layout_gravity="center"
-        android:layout_marginBottom="16dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:padding="8dp"
-        android:layout_marginBottom="8dp">
-        <EditText
-            android:id="@+id/edtTimKiem"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:background="@android:drawable/editbox_background"
-            android:hint="Nhập mã vật tư.."
-            android:padding="8dp"/>
-        <Button
-            android:id="@+id/btn_tk"
+        style="@style/ItemStyle"
+        android:elevation="4dp"
+        android:layout_marginBottom="12dp"
+        android:paddingHorizontal="16dp">
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@android:drawable/ic_menu_agenda"
+            style="@style/IconStyle"/>
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:text="Search"
-            android:backgroundTint="@color/blue"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="10dp"/>
+            android:layout_height="wrap_content"
+            android:text="Quản lý vật tư"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            style="@style/TextColor"
+            android:layout_marginStart="8dp"/>
     </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewQuanLyVatTuOption"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12dp"
+            android:clipToPadding="false" />
+    </androidx.cardview.widget.CardView>
 
 
 
     <!-- Tabs -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginBottom="16dp">
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:padding="12dp"
-            android:gravity="center"
-            android:layout_marginBottom="16dp">
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="center"-->
+<!--        android:layout_marginBottom="16dp">-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:orientation="vertical"-->
+<!--            android:padding="12dp"-->
+<!--            android:gravity="center"-->
+<!--            android:layout_marginBottom="16dp">-->
 
-            <Button
-                android:id="@+id/btn_loai"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="#FFFFC1CC"
-                android:text="Loại"
-                android:textColor="#FF000000"
-                android:drawableLeft="@drawable/ic_loai"/>
+<!--            <Button-->
+<!--                android:id="@+id/btn_loai"-->
+<!--                android:layout_width="150dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginEnd="8dp"-->
+<!--                android:backgroundTint="#FFFFC1CC"-->
+<!--                android:text="Loại"-->
+<!--                android:textColor="#FF000000"-->
+<!--                android:drawableLeft="@drawable/ic_loai"/>-->
 
-            <Button
-                android:id="@+id/btn_kho"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:text="Kho"
-                android:backgroundTint="#FFFFC1CC"
-                android:textColor="#FF000000"
-                android:layout_marginEnd="8dp"
-                android:drawableLeft="@drawable/kho"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_marginBottom="16dp"
-            android:padding="12dp">
+<!--            <Button-->
+<!--                android:id="@+id/btn_kho"-->
+<!--                android:layout_width="150dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Kho"-->
+<!--                android:backgroundTint="#FFFFC1CC"-->
+<!--                android:textColor="#FF000000"-->
+<!--                android:layout_marginEnd="8dp"-->
+<!--                android:drawableLeft="@drawable/kho"/>-->
+<!--        </LinearLayout>-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:orientation="vertical"-->
+<!--            android:gravity="center"-->
+<!--            android:layout_marginBottom="16dp"-->
+<!--            android:padding="12dp">-->
 
 
 
-            <Button
-                android:id="@+id/btn_trangthai"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:text="Trạng thái"
-                android:backgroundTint="#FFFFC1CC"
-                android:textColor="#FF000000"
-                android:drawableLeft="@drawable/ic_trangthai"/>
-        </LinearLayout>
-    </LinearLayout>
+<!--            <Button-->
+<!--                android:id="@+id/btn_trangthai"-->
+<!--                android:layout_width="150dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Trạng thái"-->
+<!--                android:backgroundTint="#FFFFC1CC"-->
+<!--                android:textColor="#FF000000"-->
+<!--                android:drawableLeft="@drawable/ic_trangthai"/>-->
+<!--        </LinearLayout>-->
+<!--    </LinearLayout>-->
 
     <!-- RecyclerView -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewVatTu"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:scrollbars="vertical"/>
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/recyclerViewVatTu"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1"-->
+<!--        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--        android:scrollbars="vertical"/>-->
 
 </LinearLayout>
