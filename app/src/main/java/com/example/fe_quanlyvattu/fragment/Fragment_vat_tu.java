@@ -14,10 +14,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fe_quanlyvattu.R;
+import com.example.fe_quanlyvattu.activity.DonViTinhActivity;
+//import com.example.fe_quanlyvattu.activity.HangActivity;
+import com.example.fe_quanlyvattu.activity.HangActivity;
+import com.example.fe_quanlyvattu.activity.KieuActivity;
 import com.example.fe_quanlyvattu.activity.LoaiVtActivity;
 import com.example.fe_quanlyvattu.adpter.QuanLyVatTuOptionAdapter;
 //import com.example.fe_quanlyvattu.adpter.VatTuAdapter;
-import com.example.fe_quanlyvattu.model.QuanLyVatTuOption;
+import com.example.fe_quanlyvattu.data.model.vattu.QuanLyVatTuOption;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,28 +47,28 @@ public class Fragment_vat_tu extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerViewQuanLyVatTuOption);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        danhSachOption.add(new QuanLyVatTuOption("Loại"));
-        danhSachOption.add(new QuanLyVatTuOption("Kiểu"));
+        danhSachOption.add(new QuanLyVatTuOption("Loại Vật Tư"));
+        danhSachOption.add(new QuanLyVatTuOption("Kiểu Vật Tư"));
         danhSachOption.add(new QuanLyVatTuOption("Đơn vị tính"));
-        danhSachOption.add(new QuanLyVatTuOption("Hãng"));
+        danhSachOption.add(new QuanLyVatTuOption("Hãng Vật Tư"));
 
         adapter = new QuanLyVatTuOptionAdapter(danhSachOption);
         adapter.setOnClickListener(option -> {
             Intent intent = null;
             context = getContext();
             switch (option.getName()) {
-                case "Loại":
+                case "Loại Vật Tư":
                     intent = new Intent(context, LoaiVtActivity.class);
                     break;
-//                case "Đơn vị tính":
-//                    intent = new Intent(context, DonViTinhActivity.class);
-//                    break;
-//                case "Hãng":
-//                    intent = new Intent(context, HangActivity.class);
-//                    break;
-//                case "Kiểu":
-//                    intent = new Intent(context, KieuActivity.class);
-//                    break;
+                case "Đơn vị tính":
+                    intent = new Intent(context, DonViTinhActivity.class);
+                    break;
+                case "Hãng Vật Tư":
+                    intent = new Intent(context, HangActivity.class);
+                    break;
+                case "Kiểu Vật Tư":
+                    intent = new Intent(context, KieuActivity.class);
+                    break;
             }
 
             if (intent!=null) {

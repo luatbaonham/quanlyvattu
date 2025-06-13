@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginTop="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        style="@style/ItemStyle">
+
+        <!-- Mã hãng -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🏷️ Mã hãng: "
+                android:textSize="16sp"
+                android:textStyle="bold"
+                style="@style/TextColor"
+                android:layout_marginBottom="4dp"/>
+            <TextView
+                android:id="@+id/tvIdHang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                style="@style/TextColor"
+                android:layout_marginBottom="4dp"/>
+        </LinearLayout>
+
+        <!-- Tên hãng -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🏢 Tên hãng: "
+                android:textSize="16sp"
+                android:textStyle="bold"
+                style="@style/TextColor"
+                android:layout_marginBottom="4dp"/>
+            <TextView
+                android:id="@+id/tvTenHang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Panasonic"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                style="@style/TextColor"
+                android:layout_marginBottom="4dp"/>
+        </LinearLayout>
+
+        <!-- Thông tin liên lạc -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📞 Liên lạc: "
+                android:textSize="16sp"
+                android:textStyle="bold"
+                style="@style/TextColor"
+                android:layout_marginBottom="4dp"/>
+            <TextView
+                android:id="@+id/tvLienLac"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="teest lien lac"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                style="@style/TextColor"
+                android:layout_marginBottom="4dp"/>
+        </LinearLayout>
+
+        <!-- Địa chỉ -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📍 Địa chỉ: "
+                android:textSize="16sp"
+                android:textStyle="bold"
+                style="@style/TextColor"
+                android:layout_marginBottom="4dp"/>
+            <TextView
+                android:id="@+id/tvDiaChi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="dai chi test"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                style="@style/TextColor"
+                android:layout_marginBottom="4dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

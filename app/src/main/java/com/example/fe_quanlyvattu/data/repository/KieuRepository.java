@@ -6,8 +6,8 @@ import android.util.Log;
 import com.example.fe_quanlyvattu.data.api.ApiCallback;
 import com.example.fe_quanlyvattu.data.api.ApiService;
 import com.example.fe_quanlyvattu.data.api.RetrofitClient;
-import com.example.fe_quanlyvattu.data.model.kieu.Kieu;
-import com.example.fe_quanlyvattu.data.model.kieu.KieuResponse;
+import com.example.fe_quanlyvattu.data.model.vattu.kieu.Kieu;
+import com.example.fe_quanlyvattu.data.model.vattu.kieu.KieuResponse;
 
 import java.util.List;
 

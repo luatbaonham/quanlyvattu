@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.fe_quanlyvattu.R;
 import com.example.fe_quanlyvattu.adpter.LoaiVtAdapter;
 import com.example.fe_quanlyvattu.data.api.ApiCallback;
-import com.example.fe_quanlyvattu.data.model.loaivattu.NhomVt;
+import com.example.fe_quanlyvattu.data.model.vattu.loaivattu.NhomVt;
 import com.example.fe_quanlyvattu.data.repository.NhomVTRepository;
 
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ public class LoaiVtActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(activity_loai_vt);
 
-        rvLoaiVt = findViewById(R.id.recyclerViewLoaiVatTu);
+        rvLoaiVt = findViewById(R.id.recyclerViewLoaivt);
         rvLoaiVt.setLayoutManager(new LinearLayoutManager(this));
 
         adapter = new LoaiVtAdapter(loaiVtList, this);

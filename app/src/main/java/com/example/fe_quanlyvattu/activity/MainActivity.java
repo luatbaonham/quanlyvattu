@@ -1,25 +1,14 @@
 package com.example.fe_quanlyvattu.activity;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.SwitchCompat;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.fe_quanlyvattu.R;
 import com.example.fe_quanlyvattu.adpter.ViewPagerAdapter;
 import com.example.fe_quanlyvattu.data.api.ApiCallback;
-import com.example.fe_quanlyvattu.data.model.donvitinh.DonViTinh;
-import com.example.fe_quanlyvattu.data.model.kieu.Kieu;
-import com.example.fe_quanlyvattu.data.repository.DonViTinhRepository;
+import com.example.fe_quanlyvattu.data.model.vattu.kieu.Kieu;
 import com.example.fe_quanlyvattu.data.repository.KieuRepository;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 

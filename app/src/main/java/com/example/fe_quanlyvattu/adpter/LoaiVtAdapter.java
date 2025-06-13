@@ -15,8 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fe_quanlyvattu.R;
-import com.example.fe_quanlyvattu.activity.SualoaiVtActivity;
-import com.example.fe_quanlyvattu.data.model.loaivattu.NhomVt;
+import com.example.fe_quanlyvattu.data.model.vattu.loaivattu.NhomVt;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,16 +53,16 @@ public class LoaiVtAdapter extends RecyclerView.Adapter<LoaiVtAdapter.LoaiVtView
         //holder.lancapnhat.setText();
 
 
-        holder.btnSua.setOnClickListener(v -> {
-            Intent intent = new Intent(context, SualoaiVtActivity.class);
-            intent.putExtra("tenloai", loaiVt.getName());
-            intent.putExtra("mota", loaiVt.getDescription());
-            intent.putExtra("position", position);
-
-            if (context instanceof Activity) {
-                ((Activity) context).startActivityForResult(intent, 1001);
-            }
-        });
+//        holder.btnSua.setOnClickListener(v -> {
+//            Intent intent = new Intent(context, SualoaiVtActivity.class);
+//            intent.putExtra("tenloai", loaiVt.getName());
+//            intent.putExtra("mota", loaiVt.getDescription());
+//            intent.putExtra("position", position);
+//
+//            if (context instanceof Activity) {
+//                ((Activity) context).startActivityForResult(intent, 1001);
+//            }
+//        });
 
         holder.btnXoa.setOnClickListener(v -> {
             new AlertDialog.Builder(context)

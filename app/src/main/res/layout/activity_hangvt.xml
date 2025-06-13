@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/ScreenBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Tiêu đề -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🏢 Quản lý hãng vật tư"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            style="@style/TextColor"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Thanh tìm kiếm -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/edtTimKiemHang"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                style="@style/edtStyle"
+                android:hint="Tìm kiếm..."
+                android:padding="8dp" />
+
+            <Button
+                android:id="@+id/btntk"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="Search"
+                android:textColor="@color/black"
+                style="@style/buttonStyle"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <!-- RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewHangvt"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:scrollbars="vertical" />
+    </LinearLayout>
+
+    <!-- Nút nổi tạo phiếu -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabTaoLoaivt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:contentDescription="Tạo phiếu nhập"
+        app:srcCompat="@android:drawable/ic_input_add"
+        app:backgroundTint="@color/purple_500" />
+</FrameLayout>

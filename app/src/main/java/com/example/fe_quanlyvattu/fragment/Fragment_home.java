@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +21,7 @@ import com.example.fe_quanlyvattu.adpter.BaoCaoAdapter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 
 public class Fragment_home extends Fragment {
@@ -61,6 +63,27 @@ public class Fragment_home extends Fragment {
             // ⚠️ Recreate lại Activity để chế độ dark/light được apply
             requireActivity().recreate();
         });
+
+        TextView tvGreeting = view.findViewById(R.id.tvgreeting);
+
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY); // 0 - 23
+
+        String greeting;
+
+        if (hour >= 5 && hour < 12) {
+            greeting = "Buổi sáng vui vẻ ☀️";
+        } else if (hour >= 12 && hour < 18) {
+            greeting = "Buổi chiều vui vẻ 🌤️";
+        } else {
+            greeting = "Buổi tối vui vẻ 🌙";
+        }
+
+        tvGreeting.setText(greeting);
+        // Hiệu ứng fade in
+        tvGreeting.setAlpha(0f); // ẩn trước
+        tvGreeting.animate().alpha(1f).setDuration(1000); // hiện dần trong 1s
+
 
 
         recyclerDeXuat = view.findViewById(R.id.recycler_de_xuat);

@@ -6,8 +6,8 @@ import android.util.Log;
 import com.example.fe_quanlyvattu.data.api.ApiCallback;
 import com.example.fe_quanlyvattu.data.api.ApiService;
 import com.example.fe_quanlyvattu.data.api.RetrofitClient;
-import com.example.fe_quanlyvattu.data.model.hang.Hang;
-import com.example.fe_quanlyvattu.data.model.hang.HangResponse;
+import com.example.fe_quanlyvattu.data.model.vattu.hang.HangVt;
+import com.example.fe_quanlyvattu.data.model.vattu.hang.HangResponse;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ public class HangRepository {
         this.apiService = RetrofitClient.getInstance(context).create(ApiService.class);
     }
 
-    public void getAllHang(ApiCallback<List<Hang>> callback) {
+    public void getAllHang(ApiCallback<List<HangVt>> callback) {
         apiService.getAllHang().enqueue(new Callback<HangResponse>() {
             @Override
             public void onResponse(Call<HangResponse> call, Response<HangResponse> response) {

@@ -6,8 +6,8 @@ import android.util.Log;
 import com.example.fe_quanlyvattu.data.api.ApiCallback;
 import com.example.fe_quanlyvattu.data.api.ApiService;
 import com.example.fe_quanlyvattu.data.api.RetrofitClient;
-import com.example.fe_quanlyvattu.data.model.donvitinh.DonViTinh;
-import com.example.fe_quanlyvattu.data.model.donvitinh.DonViTinhResponse;
+import com.example.fe_quanlyvattu.data.model.vattu.donvitinh.DonViTinh;
+import com.example.fe_quanlyvattu.data.model.vattu.donvitinh.DonViTinhResponse;
 
 import java.util.List;
 
@@ -40,4 +40,5 @@ public class DonViTinhRepository {
             }
         });
     }
+
 }

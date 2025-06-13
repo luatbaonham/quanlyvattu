@@ -9,7 +9,6 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import com.example.fe_quanlyvattu.fragment.FragmentQuanLyPhieu;
 import com.example.fe_quanlyvattu.fragment.Fragment_duyet_capphat;
 import com.example.fe_quanlyvattu.fragment.Fragment_home;
-import com.example.fe_quanlyvattu.fragment.Fragment_phieunhap_thanhly;
 import com.example.fe_quanlyvattu.fragment.Fragment_tai_khoan;
 import com.example.fe_quanlyvattu.fragment.Fragment_vat_tu;
 

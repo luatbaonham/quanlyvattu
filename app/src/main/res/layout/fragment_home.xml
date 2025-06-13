@@ -4,17 +4,17 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:style="http://schemas.android.com/tools"
-    android:background="#121212">
+    style="@style/ScreenBackground">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        style="@style/CardBackground">
+        style="@style/ScreenBackground">
         <!-- 4 Icon Buttons -->
         <LinearLayout
             android:id="@+id/header_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            style="@style/CardBackground"
+            style="@style/ScreenBackground"
             android:orientation="vertical"
             android:padding="16dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -30,6 +30,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/tvgreeting"
                     style="@style/TextColor"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -53,15 +54,6 @@
                 android:text="Tên Admin"
                 style="@style/TextColor"
                 android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/search_bar"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="12dp"
-                android:background="@android:drawable/edit_text"
-                android:hint="Tìm kiếm..."
-                android:padding="8dp" />
         </LinearLayout>
 
         <LinearLayout

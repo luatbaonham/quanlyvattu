@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginTop="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        style="@style/ItemStyle">
+
+        <!-- Mã đơn vị -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🆔 Mã đơn vị: "
+                android:textSize="16sp"
+                android:textStyle="bold"
+                style="@style/TextColor"
+                android:layout_marginBottom="4dp"/>
+            <TextView
+                android:id="@+id/tvIdDonVi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                style="@style/TextColor"
+                android:layout_marginBottom="4dp"/>
+        </LinearLayout>
+
+        <!-- Tên đơn vị -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📦 Tên đơn vị: "
+                android:textSize="16sp"
+                android:textStyle="bold"
+                style="@style/TextColor"
+                android:layout_marginBottom="4dp"/>
+            <TextView
+                android:id="@+id/tvTenDonVi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="chiếc"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                style="@style/TextColor"
+                android:layout_marginBottom="4dp"/>
+        </LinearLayout>
+
+        <!-- Mô tả -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📝 Mô tả: "
+                android:textSize="16sp"
+                android:textStyle="bold"
+                style="@style/TextColor"
+                android:layout_marginBottom="4dp"/>
+            <TextView
+                android:id="@+id/tvMoTa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="đơn vị cho máy tính"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                style="@style/TextColor"
+                android:layout_marginBottom="4dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

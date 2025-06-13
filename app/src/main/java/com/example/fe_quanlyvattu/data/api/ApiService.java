@@ -2,10 +2,10 @@ package com.example.fe_quanlyvattu.data.api;
 
 import com.example.fe_quanlyvattu.data.model.auth.LoginRequest;
 import com.example.fe_quanlyvattu.data.model.auth.LoginResponse;
-import com.example.fe_quanlyvattu.data.model.donvitinh.DonViTinhResponse;
-import com.example.fe_quanlyvattu.data.model.hang.HangResponse;
-import com.example.fe_quanlyvattu.data.model.kieu.KieuResponse;
-import com.example.fe_quanlyvattu.data.model.loaivattu.NhomVtResponse;
+import com.example.fe_quanlyvattu.data.model.vattu.donvitinh.DonViTinhResponse;
+import com.example.fe_quanlyvattu.data.model.vattu.hang.HangResponse;
+import com.example.fe_quanlyvattu.data.model.vattu.kieu.KieuResponse;
+import com.example.fe_quanlyvattu.data.model.vattu.loaivattu.NhomVtResponse;
 import com.example.fe_quanlyvattu.data.model.phieumuon.PhieuMuonResponse;
 import com.example.fe_quanlyvattu.data.model.phieunhap.CapNhatTrangThaiRequest;
 import com.example.fe_quanlyvattu.data.model.phieunhap.CreatePhieuNhapRequest;

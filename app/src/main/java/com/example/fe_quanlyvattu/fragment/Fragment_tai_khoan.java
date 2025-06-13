@@ -42,7 +42,6 @@ public class Fragment_tai_khoan extends Fragment {
 //        btnQuanLyBanQuyen = view.findViewById(R.id.btnQuanLyBanQuyen);
         btnDangXuat = view.findViewById(R.id.btnDangXuat);
 
-        imgAvatar.setImageResource(R.drawable.real);
         tvName.setText("Nguyễn Văn A");
         tvEmail.setText("admin@daihocx.edu.vn");
         tvRole.setText("Vai trò: Admin");

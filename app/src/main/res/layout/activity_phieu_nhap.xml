@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF5F5F5">
+    style="@style/ScreenBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:text="Quản lý phiếu nhập/thanh lý"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:textColor="#FF000000"
+            style="@style/TextColor"
             android:layout_gravity="center"
             android:layout_marginBottom="16dp" />
 
@@ -36,7 +36,7 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:background="@android:drawable/editbox_background"
+                style="@style/edtStyle"
                 android:hint="Tìm kiếm..."
                 android:padding="8dp" />
 
@@ -46,7 +46,7 @@
                 android:layout_height="50dp"
                 android:text="Search"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whatsapp_green"
+                style="@style/buttonStyle"
                 android:layout_marginStart="8dp" />
         </LinearLayout>
 
