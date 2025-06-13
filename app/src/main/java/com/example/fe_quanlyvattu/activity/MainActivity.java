@@ -16,7 +16,14 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.fe_quanlyvattu.R;
 import com.example.fe_quanlyvattu.adpter.ViewPagerAdapter;
+import com.example.fe_quanlyvattu.data.api.ApiCallback;
+import com.example.fe_quanlyvattu.data.model.donvitinh.DonViTinh;
+import com.example.fe_quanlyvattu.data.model.kieu.Kieu;
+import com.example.fe_quanlyvattu.data.repository.DonViTinhRepository;
+import com.example.fe_quanlyvattu.data.repository.KieuRepository;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -66,5 +73,19 @@ public class MainActivity extends AppCompatActivity {
                 bottomNavigationView.getMenu().getItem(position).setChecked(true);
             }
         });
+        KieuRepository kieuRepository = new KieuRepository(this);
+        kieuRepository.getAllKieu(new ApiCallback<>() {
+            @Override
+            public void onSuccess(List<Kieu> result) {
+                // Không làm gì cả
+            }
+
+            @Override
+            public void onError(String errorMessage) {
+                // Không xử lý gì cả
+            }
+        });
+
+
     }
 }

@@ -2,6 +2,8 @@ package com.example.fe_quanlyvattu.data.api;
 
 import com.example.fe_quanlyvattu.data.model.auth.LoginRequest;
 import com.example.fe_quanlyvattu.data.model.auth.LoginResponse;
+import com.example.fe_quanlyvattu.data.model.donvitinh.DonViTinhResponse;
+import com.example.fe_quanlyvattu.data.model.kieu.KieuResponse;
 import com.example.fe_quanlyvattu.data.model.loaivattu.NhomVtResponse;
 import com.example.fe_quanlyvattu.data.model.phieumuon.PhieuMuonResponse;
 import com.example.fe_quanlyvattu.data.model.phieunhap.CapNhatTrangThaiRequest;
@@ -50,5 +52,10 @@ public interface ApiService {
     Call<PhieuNhapUpdateResponse> updateImportReceiptStatus(
             @Path("id") int importReceiptId,
             @Body CapNhatTrangThaiRequest request);
+    @GET("unit-of-measure")
+    Call<DonViTinhResponse> getAllDonViTinh();
+
+    @GET("equipment-type")
+    Call<KieuResponse> getAllKieu();
 
 }
