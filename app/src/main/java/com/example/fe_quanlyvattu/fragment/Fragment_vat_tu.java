@@ -60,10 +60,10 @@ public class Fragment_vat_tu extends Fragment {
                     intent = new Intent(context, DonViTinhActivity.class);
                     break;
                 case "Hãng":
-                    intent = new Intent(Context, HangActivity.class);
+                    intent = new Intent(context, HangActivity.class);
                     break;
                 case "Kiểu":
-                    intent = new Intent(Context, KieuActivity.class);
+                    intent = new Intent(context, KieuActivity.class);
                     break;
             }
 
