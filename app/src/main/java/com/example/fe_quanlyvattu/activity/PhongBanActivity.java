@@ -22,7 +22,7 @@
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_phong_ban);
+//        setContentView(R.layout.activity_ct_phongban);
 //
 //        recyclerView = findViewById(R.id.recyclerViewPhongBan);
 //        recyclerView.setLayoutManager(new LinearLayoutManager(this));
