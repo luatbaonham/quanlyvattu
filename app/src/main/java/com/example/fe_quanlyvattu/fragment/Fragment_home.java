@@ -1,5 +1,6 @@
 package com.example.fe_quanlyvattu.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fe_quanlyvattu.R;
 import com.example.fe_quanlyvattu.adpter.BaoCaoAdapter;
+import com.example.fe_quanlyvattu.auth.SessionManager;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,13 +35,19 @@ public class Fragment_home extends Fragment {
 
     private RecyclerView recyclerDeXuat, recyclerBaoCao;
     private BaoCaoAdapter baoCaoAdapter;
+    private TextView txtViewUsername;
 
+
+    @SuppressLint("MissingInflatedId")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
+        txtViewUsername = view.findViewById(R.id.txtusername);
+        SessionManager sessionManager = new SessionManager(getContext());
+        String userName = sessionManager.getUsername();
+        txtViewUsername.setText(userName);
 //        Khởi tạo Switch từ view
         switchMode = view.findViewById(R.id.switchMode);
         sharedPreferences = requireActivity().getSharedPreferences("night_mode_prefs", Context.MODE_PRIVATE);

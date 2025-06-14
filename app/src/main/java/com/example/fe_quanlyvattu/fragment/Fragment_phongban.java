@@ -16,22 +16,14 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.fe_quanlyvattu.R;
-
 import com.example.fe_quanlyvattu.activity.PhongActivity;
 import com.example.fe_quanlyvattu.adpter.PhongBanAdapter;
 import com.example.fe_quanlyvattu.data.api.ApiCallback;
-import com.example.fe_quanlyvattu.data.api.ApiService;
-import com.example.fe_quanlyvattu.data.api.RetrofitClient;
 import com.example.fe_quanlyvattu.data.model.phongban.Department;
-import com.example.fe_quanlyvattu.data.model.vattu.QuanLyVatTuOption;
 import com.example.fe_quanlyvattu.data.repository.PhongBanRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class Fragment_phongban extends Fragment {
 
@@ -40,20 +32,27 @@ public class Fragment_phongban extends Fragment {
     private List<Department> phongBanList = new ArrayList<>();
     private Context context;
 
+    @Override
+    public void onAttach(@NonNull Context ctx) {
+        super.onAttach(ctx);
+        this.context = ctx; // Gán context an toàn
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_phongban, container, false);
 
+        // Khởi tạo RecyclerView
         recyclerView = view.findViewById(R.id.recyclerViewquanlyphongban);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
-        phongBanList = new ArrayList<>();
-        adapter = new PhongBanAdapter(getContext(), phongBanList);
+        // Tạo adapter và gán cho RecyclerView
+        adapter = new PhongBanAdapter(context, phongBanList);
         recyclerView.setAdapter(adapter);
 
-        adapter = new PhongBanAdapter(context, phongBanList);
+        // Xử lý sự kiện khi click vào item
         adapter.setOnItemClickListener(department -> {
             Intent intent = new Intent(context, PhongActivity.class);
             intent.putExtra("departmentName", department.getName());
@@ -61,13 +60,14 @@ public class Fragment_phongban extends Fragment {
             startActivity(intent);
         });
 
+        // Gọi API để tải dữ liệu phòng ban
         loadData();
+
         return view;
     }
 
     private void loadData() {
-        // Không truyền apiService nữa, chỉ cần truyền context
-        PhongBanRepository phongBanRepository = new PhongBanRepository(getContext());
+        PhongBanRepository phongBanRepository = new PhongBanRepository(context);
 
         phongBanRepository.getAllPhongBan(new ApiCallback<List<Department>>() {
             @Override
@@ -75,14 +75,13 @@ public class Fragment_phongban extends Fragment {
                 phongBanList.clear();
                 phongBanList.addAll(data);
                 adapter.updateList(data);
+                Toast.makeText(context, "Nhận thành công danh sách Phòng ban", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onError(String errorMessage) {
-                Toast.makeText(getContext(), "Lỗi: " + errorMessage, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Lỗi: " + errorMessage, Toast.LENGTH_SHORT).show();
             }
         });
     }
-
 }
-
