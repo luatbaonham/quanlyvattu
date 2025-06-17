@@ -22,6 +22,15 @@ public class SessionManager {
     private static final String KEY_REFRESH_TOKEN = "refresh_token";
     private static final String KEY_USER_CODE = "user_code";
     private static final String KEY_USERNAME = "username";
+    private static final String KEY_AVATAR_URL = "avatar_url";
+
+    public void saveAvatarUrl(String url) {
+        prefs.edit().putString(KEY_AVATAR_URL, url).apply();
+    }
+
+    public String getAvatarUrl() {
+        return prefs.getString(KEY_AVATAR_URL, null);
+    }
 
     private final SharedPreferences prefs;
 

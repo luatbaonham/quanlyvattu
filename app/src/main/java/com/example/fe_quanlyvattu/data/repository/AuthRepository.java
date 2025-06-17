@@ -10,6 +10,7 @@ import com.example.fe_quanlyvattu.auth.SessionManager;
 import com.example.fe_quanlyvattu.data.api.RetrofitClient;
 import com.example.fe_quanlyvattu.data.model.auth.LoginRequest;
 import com.example.fe_quanlyvattu.data.model.auth.LogoutRequest;
+import com.example.fe_quanlyvattu.data.model.auth.SignupRequest;
 import com.example.fe_quanlyvattu.data.model.common.ApiResponse;
 import com.example.fe_quanlyvattu.data.model.common.Metadata;
 import com.google.gson.Gson;
@@ -84,6 +85,32 @@ public class AuthRepository {
 
             @Override
             public void onFailure(Call<ApiResponse<Integer>> call, Throwable t) {
+                callback.onError("Lỗi kết nối: " + t.getMessage());
+            }
+        });
+    }
+
+    public void signup(String username, String password, String role, LoginCallback<Metadata> callback) {
+        SignupRequest request = new SignupRequest(username, password, role);
+        Call<ApiResponse<Metadata>> call = authApi.signup(request);
+
+        call.enqueue(new Callback<ApiResponse<Metadata>>() {
+            @Override
+            public void onResponse(Call<ApiResponse<Metadata>> call, Response<ApiResponse<Metadata>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    Metadata metadata = response.body().getMetadata();
+                    if (metadata != null) {
+                        callback.onSuccess(metadata);
+                    } else {
+                        callback.onError("Đăng ký thành công nhưng không có metadata");
+                    }
+                } else {
+                    callback.onError("Đăng ký thất bại: " + response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse<Metadata>> call, Throwable t) {
                 callback.onError("Lỗi kết nối: " + t.getMessage());
             }
         });

@@ -35,6 +35,11 @@ android {
 }
 
 dependencies {
+    implementation ("com.amazonaws:aws-android-sdk-s3:2.72.0")
+    implementation ("com.amazonaws:aws-android-sdk-core:2.72.0")
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.16.0")
+    implementation ("com.amazonaws:aws-android-sdk-s3:2.16.+")
     implementation("com.google.android.material:material:1.11.0") // hoặc phiên bản mới nhất
     implementation("com.android.volley:volley:1.2.1")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")

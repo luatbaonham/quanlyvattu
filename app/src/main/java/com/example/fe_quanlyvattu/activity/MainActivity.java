@@ -1,16 +1,23 @@
 package com.example.fe_quanlyvattu.activity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.fe_quanlyvattu.R;
 import com.example.fe_quanlyvattu.adpter.ViewPagerAdapter;
+import com.example.fe_quanlyvattu.auth.SessionManager;
 import com.example.fe_quanlyvattu.data.api.ApiCallback;
+import com.example.fe_quanlyvattu.data.model.profile.GProfile;
 import com.example.fe_quanlyvattu.data.model.vattu.kieu.Kieu;
 import com.example.fe_quanlyvattu.data.repository.KieuRepository;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.fe_quanlyvattu.data.repository.ProfileRepository;
+import com.example.fe_quanlyvattu.activity.ActivityCreateProfile;
 
 import java.util.List;
 
@@ -19,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
     ViewPager2 viewPager;
     BottomNavigationView bottomNavigationView;
+    private SessionManager sessionManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,18 +71,46 @@ public class MainActivity extends AppCompatActivity {
                 bottomNavigationView.getMenu().getItem(position).setChecked(true);
             }
         });
-//        KieuRepository kieuRepository = new KieuRepository(this);
-//        kieuRepository.getAllKieu(new ApiCallback<>() {
-//            @Override
-//            public void onSuccess(List<Kieu> result) {
-//                // Không làm gì cả
-//            }
-//
-//            @Override
-//            public void onError(String errorMessage) {
-//                // Không xử lý gì cả
-//            }
-//        });
+        // Khởi tạo repository
+        ProfileRepository profileRepository = new ProfileRepository(this);
+
+// Gọi API kiểm tra hồ sơ
+        sessionManager = new SessionManager(MainActivity.this);
+
+        // Khởi tạo SessionManager và ProfileRepository
+
+        profileRepository.checkProfileExisted(new ApiCallback<Boolean>() {
+            @Override
+            public void onSuccess(Boolean hasProfile) {
+                if (!hasProfile) {
+                    // Nếu chưa có hồ sơ, chuyển sang màn tạo hồ sơ
+                    Intent intent = new Intent(MainActivity.this, ActivityCreateProfile.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    // Nếu đã có hồ sơ, lấy thông tin hồ sơ
+                    profileRepository.getProfile(new ApiCallback<GProfile>() {
+                        @Override
+                        public void onSuccess(GProfile gProfile) {
+                            String avatarUrl = gProfile.getAvatar_url();
+                            if (avatarUrl != null) {
+                                sessionManager.saveAvatarUrl(avatarUrl); // Gọi hàm tiện lợi bạn đã viết
+                            }
+                        }
+
+                        @Override
+                        public void onError(String errorMessage) {
+                            Toast.makeText(MainActivity.this, "Không thể lấy hồ sơ: " + errorMessage, Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onError(String errorMessage) {
+                Toast.makeText(MainActivity.this, "Lỗi kiểm tra hồ sơ: " + errorMessage, Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
     }

@@ -43,6 +43,13 @@ public class activity_dang_nhap extends AppCompatActivity {
         buttonLogin = findViewById(R.id.btnDangNhap);
 
         buttonLogin.setOnClickListener(v -> login());
+
+        Button buttonRegister = findViewById(R.id.btnGoToRegister);
+        buttonRegister.setOnClickListener(v -> {
+            Intent intent = new Intent(activity_dang_nhap.this, activity_dang_ky.class);
+            startActivity(intent);
+        });
+
     }
 
     private void login() {

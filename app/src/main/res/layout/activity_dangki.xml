@@ -94,6 +94,7 @@
         android:background="@drawable/round_corner" />
 
     <Button
+        android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Đăng ký"
@@ -137,7 +138,7 @@
             android:background="#CCCCCC"/>
     </LinearLayout>
     <Button
-        android:id="@+id/btnRegister"
+        android:id="@+id/btnGoToLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="ĐĂNG NHẬP"

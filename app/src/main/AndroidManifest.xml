@@ -2,7 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"
+        tools:ignore="SelectedPhotoAccess" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -36,6 +42,10 @@
         <activity android:name=".activity.HangActivity"/>
         <activity android:name=".activity.KieuActivity" />
         <activity android:name=".activity.PhongActivity" />
+        <activity android:name=".activity.activity_dang_ky" />
+        <activity android:name=".activity.ActivityCreateProfile" />
+        <activity android:name=".activity.ActivityCapNhatHoSo"/>
+
     </application>
 
 </manifest>

@@ -4,6 +4,7 @@ import com.example.fe_quanlyvattu.auth.model.RefreshTokenRequest;
 import com.example.fe_quanlyvattu.auth.model.TokenResponse;
 import com.example.fe_quanlyvattu.data.model.auth.LoginRequest;
 import com.example.fe_quanlyvattu.data.model.auth.LogoutRequest;
+import com.example.fe_quanlyvattu.data.model.auth.SignupRequest;
 import com.example.fe_quanlyvattu.data.model.common.ApiResponse;
 import com.example.fe_quanlyvattu.data.model.common.Metadata;
 
@@ -19,5 +20,7 @@ public interface AuthApi {
 
     @POST("logout")
     Call<ApiResponse<Integer>> logout(@Body LogoutRequest logoutRequest);
+    @POST("signup") // hoặc đường dẫn backend đúng
+    Call<ApiResponse<Metadata>> signup(@Body SignupRequest request);
 }
 

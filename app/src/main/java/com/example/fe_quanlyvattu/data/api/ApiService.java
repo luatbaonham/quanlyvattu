@@ -2,9 +2,19 @@ package com.example.fe_quanlyvattu.data.api;
 
 import com.example.fe_quanlyvattu.data.model.auth.LoginRequest;
 import com.example.fe_quanlyvattu.data.model.auth.LoginResponse;
+import com.example.fe_quanlyvattu.data.model.auth.SignupRequest;
+import com.example.fe_quanlyvattu.data.model.common.ApiResponse;
+import com.example.fe_quanlyvattu.data.model.common.Metadata;
 import com.example.fe_quanlyvattu.data.model.home_baocao.BaoCaoResponse;
 import com.example.fe_quanlyvattu.data.model.kho.EquipmentResponse;
 import com.example.fe_quanlyvattu.data.model.phongban.PhongBanResponse;
+import com.example.fe_quanlyvattu.data.model.profile.CheckProfileResponse;
+import com.example.fe_quanlyvattu.data.model.profile.CreateProfileRequest;
+import com.example.fe_quanlyvattu.data.model.profile.CreateProfileResponse;
+import com.example.fe_quanlyvattu.data.model.profile.GProfile;
+import com.example.fe_quanlyvattu.data.model.profile.GetProfileResponse;
+import com.example.fe_quanlyvattu.data.model.profile.UpdateProfileRequest;
+import com.example.fe_quanlyvattu.data.model.profile.UpdateProfileResponse;
 import com.example.fe_quanlyvattu.data.model.vattu.donvitinh.DonViTinhResponse;
 import com.example.fe_quanlyvattu.data.model.vattu.hang.HangResponse;
 import com.example.fe_quanlyvattu.data.model.vattu.kieu.KieuResponse;
@@ -30,6 +40,8 @@ public interface ApiService {
 
     @POST("login")
     Call<LoginResponse> login(@Body LoginRequest loginRequest);
+
+
 
     @GET("equipment-manufacturer")
     Call<JsonObject> getManufacturers(
@@ -71,6 +83,17 @@ public interface ApiService {
 
     @GET("report/all")
     Call<BaoCaoResponse> getAllBaoCao();
+
+    @GET("profile/exists")
+    Call<CheckProfileResponse> checkProfileExisted();
+    @POST("profile")
+    Call<CreateProfileResponse> createProfile(@Body CreateProfileRequest request);
+    @GET("profile") // endpoint tùy theo backend bạn đang dùng
+    Call<GetProfileResponse> getProfile();
+    @PUT("profile") // hoặc endpoint thực tế bạn dùng
+    Call<UpdateProfileResponse> updateProfile(@Body UpdateProfileRequest request);
+
+
 
 
 }
