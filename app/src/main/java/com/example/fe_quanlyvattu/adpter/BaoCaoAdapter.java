@@ -48,7 +48,6 @@ public class BaoCaoAdapter extends RecyclerView.Adapter<BaoCaoAdapter.BaoCaoView
     public void onBindViewHolder(@NonNull BaoCaoViewHolder holder, int position) {
         ReportItem item = reportList.get(position);
 
-        // 1. Loại phiếu
         String loaiPhieuHienThi;
         switch (item.getLoaiPhieu()) {
             case "import":
@@ -67,7 +66,6 @@ public class BaoCaoAdapter extends RecyclerView.Adapter<BaoCaoAdapter.BaoCaoView
                 loaiPhieuHienThi = "❓ Không rõ";
         }
 
-        // 2. Trạng thái
         String trangThai = item.getStatus().toLowerCase();
         String trangThaiHienThi;
 
@@ -91,7 +89,6 @@ public class BaoCaoAdapter extends RecyclerView.Adapter<BaoCaoAdapter.BaoCaoView
                 trangThaiHienThi = "❓ Không rõ";
         }
 
-        // 3. Số lượng
         String soLuongHienThi = "🔢 Số lượng: " + item.getCount();
 
         // Gán dữ liệu vào ViewHolder

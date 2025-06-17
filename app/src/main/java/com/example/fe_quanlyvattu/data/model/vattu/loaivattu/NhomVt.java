@@ -1,5 +1,9 @@
 package com.example.fe_quanlyvattu.data.model.vattu.loaivattu;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.Map;
+
 public class NhomVt {
     private String code;
     private String name;
@@ -7,13 +11,15 @@ public class NhomVt {
     private DonViDoLuong unitOfMeasure;
     private LoaiVt type;
     private HangSX manufacturer;
-    private EquipmentStatusCounts equipmentStatusCounts;
+    @SerializedName("equipmentStatusCounts")
+    private Map<String, Integer> equipmentStatusCounts;
+
     private Boolean isDeleted;
     private Boolean isActive;
     private String createdAt;
     private String updatedAt;
 
-    public NhomVt(String code, String name, String description, DonViDoLuong unitOfMeasure, LoaiVt type, HangSX manufacturer, EquipmentStatusCounts equipmentStatusCounts, Boolean isDeleted, Boolean isActive, String createdAt, String updatedAt) {
+    public NhomVt(String code, String name, String description, DonViDoLuong unitOfMeasure, LoaiVt type, HangSX manufacturer, Map<String, Integer> equipmentStatusCounts , Boolean isDeleted, Boolean isActive, String createdAt, String updatedAt) {
         this.code = code;
         this.name = name;
         this.description = description;
@@ -27,32 +33,6 @@ public class NhomVt {
         this.updatedAt = updatedAt;
     }
 
-    public EquipmentStatusCounts getEquipmentStatusCounts() {
-        return equipmentStatusCounts;
-    }
-
-    public void setEquipmentStatusCounts(EquipmentStatusCounts equipmentStatusCounts) {
-        this.equipmentStatusCounts = equipmentStatusCounts;
-    }
-
-    public NhomVt(String code, String name, String description, DonViDoLuong unitOfMeasure, LoaiVt type, HangSX manufacturer, EquipmentStatusCounts equipmentStatusCounts) {
-        this.code = code;
-        this.name = name;
-        this.description = description;
-        this.unitOfMeasure = unitOfMeasure;
-        this.type = type;
-        this.manufacturer = manufacturer;
-        this.equipmentStatusCounts = equipmentStatusCounts;
-    }
-
-    public NhomVt(String code, String name, String description, DonViDoLuong unitOfMeasure, LoaiVt type, HangSX manufacturer) {
-        this.code = code;
-        this.name = name;
-        this.description = description;
-        this.unitOfMeasure = unitOfMeasure;
-        this.type = type;
-        this.manufacturer = manufacturer;
-    }
 
     public String getCode() {
         return code;
@@ -132,5 +112,13 @@ public class NhomVt {
 
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Map<String, Integer> getEquipmentStatusCounts() {
+        return equipmentStatusCounts;
+    }
+
+    public void setEquipmentStatusCounts(Map<String, Integer> equipmentStatusCounts) {
+        this.equipmentStatusCounts = equipmentStatusCounts;
     }
 }

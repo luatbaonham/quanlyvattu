@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +19,7 @@ import com.example.fe_quanlyvattu.data.model.vattu.loaivattu.NhomVt;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class LoaiVtAdapter extends RecyclerView.Adapter<LoaiVtAdapter.LoaiVtViewHolder> {
     private List<NhomVt> loaiVtList;
@@ -40,41 +41,83 @@ public class LoaiVtAdapter extends RecyclerView.Adapter<LoaiVtAdapter.LoaiVtView
     @Override
     public void onBindViewHolder(@NonNull LoaiVtViewHolder holder, int position) {
         NhomVt loaiVt = loaiVtList.get(position);
+
+        // Debug log quan trọng
+        Log.d("ADAPTER_DEBUG", "Item: " + loaiVt.getName());
+        Log.d("ADAPTER_COUNTS", "Raw counts: " + loaiVt.getEquipmentStatusCounts());
+        Log.d("ADAPTER_COUNTS", "Parsed counts: " +
+                (loaiVt.getEquipmentStatusCounts() != null ?
+                        loaiVt.getEquipmentStatusCounts() : "null"));
+
+        // Hiển thị thông tin cơ bản
         holder.ten.setText(loaiVt.getName());
-        holder.mota.setText(loaiVt.getDescription());
-        holder.soluong.setText(
-                loaiVt.getEquipmentStatusCounts().getAvailable() + " " +loaiVt.getUnitOfMeasure().getName()
-        );
-        holder.hang.setText(
-                loaiVt.getManufacturer().getName()
-        );
-        holder.lancapnhat.setText(loaiVt.getUpdatedAt());
-        //holder.lancapnhat.setText();
+        holder.mota.setText(loaiVt.getDescription() != null ? loaiVt.getDescription() : "");
 
+        // Hiển thị hãng sản xuất
+        holder.hang.setText(loaiVt.getManufacturer() != null ?
+                loaiVt.getManufacturer().getName() : "Không xác định");
 
-//        holder.btnSua.setOnClickListener(v -> {
-//            Intent intent = new Intent(context, SualoaiVtActivity.class);
-//            intent.putExtra("tenloai", loaiVt.getName());
-//            intent.putExtra("mota", loaiVt.getDescription());
-//            intent.putExtra("position", position);
-//
-//            if (context instanceof Activity) {
-//                ((Activity) context).startActivityForResult(intent, 1001);
-//            }
-//        });
+        // Xử lý số lượng
+        String quantityText = buildQuantityText(loaiVt);
+        holder.soluong.setText(quantityText);
+        holder.lancapnhat.setText(formatDate(loaiVt.getUpdatedAt()));
+    }
 
-        holder.btnXoa.setOnClickListener(v -> {
-            new AlertDialog.Builder(context)
-                    .setTitle("Xác nhận xóa")
-                    .setMessage("Bạn có chắc chắn xóa loại vật tư này?\nNhững vật tư thuộc loại này sẽ chuyển về loại mặc định.")
-                    .setNegativeButton("Hủy", null)
-                    .setPositiveButton("Xác nhận", (dialog, which) -> {
-                        loaiVtList.remove(position);
-                        notifyItemRemoved(position);
-                        notifyItemRangeChanged(position, loaiVtList.size());
-                    })
-                    .show();
-        });
+    private String buildQuantityText(NhomVt loaiVt) {
+        if (loaiVt.getEquipmentStatusCounts() == null) {
+            return "Không có thiết bị nào";
+        }
+
+        Map<String, Integer> statusMap = loaiVt.getEquipmentStatusCounts();
+        if (statusMap == null || statusMap.isEmpty()) {
+            return "Không có thiết bị nào";
+        }
+
+        int total = 0;
+        StringBuilder details = new StringBuilder();
+
+        for (Map.Entry<String, Integer> entry : statusMap.entrySet()) {
+            if (entry.getValue() != null && entry.getValue() > 0) {
+                total += entry.getValue();
+                if (details.length() > 0) details.append(", ");
+                details.append(convertStatusKeyToText(entry.getKey()))
+                        .append(": ")
+                        .append(entry.getValue());
+            }
+        }
+
+        if (total == 0) {
+            return "Không có thiết bị nào";
+        }
+
+        String unit = (loaiVt.getUnitOfMeasure() != null &&
+                loaiVt.getUnitOfMeasure().getName() != null) ?
+                loaiVt.getUnitOfMeasure().getName() : "";
+
+        return "Tổng: " + total + " (" + details.toString() + ")" + (unit.isEmpty() ? "" : " " + unit);
+    }
+
+    private String formatDate(String rawDate) {
+        if (rawDate == null || rawDate.isEmpty()) return "";
+        try {
+            // Lấy phần ngày tháng (bỏ phần thời gian và timezone)
+            return rawDate.split("T")[0];
+        } catch (Exception e) {
+            return rawDate;
+        }
+    }
+
+    private void showDeleteConfirmation(int position) {
+        new AlertDialog.Builder(context)
+                .setTitle("Xác nhận xóa")
+                .setMessage("Bạn có chắc chắn xóa loại vật tư này?\nNhững vật tư thuộc loại này sẽ chuyển về loại mặc định.")
+                .setNegativeButton("Hủy", null)
+                .setPositiveButton("Xác nhận", (dialog, which) -> {
+                    loaiVtList.remove(position);
+                    notifyItemRemoved(position);
+                    notifyItemRangeChanged(position, loaiVtList.size());
+                })
+                .show();
     }
 
     @Override
@@ -105,6 +148,16 @@ public class LoaiVtAdapter extends RecyclerView.Adapter<LoaiVtAdapter.LoaiVtView
 
     public void setLoaiVtList(List<NhomVt> loaiVtList) {
         this.loaiVtList = loaiVtList != null ? loaiVtList : new ArrayList<>();
-        notifyDataSetChanged(); // ✅ Cập nhật lại toàn bộ danh sách
+        notifyDataSetChanged();
+    }
+
+    private String convertStatusKeyToText(String key) {
+        switch (key) {
+            case "available": return "Sẵn sàng";
+            case "in_use": return "Đang dùng";
+            case "pending_transfer": return "Chờ chuyển";
+            case "liquidation": return "Thanh lý";
+            default: return key;
+        }
     }
 }

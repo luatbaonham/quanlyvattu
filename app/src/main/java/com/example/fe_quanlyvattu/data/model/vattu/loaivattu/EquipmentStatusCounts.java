@@ -1,31 +1,25 @@
-package com.example.fe_quanlyvattu.data.model.vattu.loaivattu;
+//package com.example.fe_quanlyvattu.data.model.vattu.loaivattu;
+//
+//import com.google.gson.annotations.SerializedName;
+//
+//import java.util.Collections;
+//import java.util.Map;
+//
+//public class EquipmentStatusCounts {
+//    @SerializedName("equipmentStatusCounts")
+//    private Map<String, Map<String, Integer>> nestedCounts;
+//
+//    public Map<String, Integer> getStatusCounts() {
+//        if (nestedCounts != null && nestedCounts.containsKey("equipmentStatusCounts")) {
+//            Map<String, Integer> innerMap = nestedCounts.get("equipmentStatusCounts");
+//            return innerMap != null ? innerMap : Collections.emptyMap();
+//        }
+//        return Collections.emptyMap();
+//    }
+//
+//    public void setStatusCounts(Map<String, Map<String, Integer>> nestedCounts) {
+//        this.nestedCounts = nestedCounts;
+//    }
+//}
 
-public class EquipmentStatusCounts {
-    private int available;
-    private int liquidation;
 
-    public int getLiquidation() {
-        return liquidation;
-    }
-
-    public void setLiquidation(int liquidation) {
-        this.liquidation = liquidation;
-    }
-
-    public EquipmentStatusCounts(int available, int liquidation) {
-        this.available = available;
-        this.liquidation = liquidation;
-    }
-
-    public EquipmentStatusCounts(int available) {
-        this.available = available;
-    }
-
-    public int getAvailable() {
-        return available;
-    }
-
-    public void setAvailable(int available) {
-        this.available = available;
-    }
-}
