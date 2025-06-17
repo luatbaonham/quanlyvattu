@@ -3,6 +3,7 @@ package com.example.fe_quanlyvattu.activity;
 import static com.example.fe_quanlyvattu.R.layout.activity_loai_vt;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -38,9 +39,25 @@ public class LoaiVtActivity extends AppCompatActivity {
 
     private void getLoaiVt() {
         NhomVTRepository repository = new NhomVTRepository(this);
+        Log.d("API_CALL", "Bắt đầu gọi API lấy danh sách loại VT");
+
         repository.getAllNhomVT(new ApiCallback<List<NhomVt>>() {
             @Override
             public void onSuccess(List<NhomVt> response) {
+                Log.d("API_SUCCESS", "Nhận được " + response.size() + " items");
+
+                // Log 3 item đầu tiên để kiểm tra
+                for (int i = 0; i < Math.min(response.size(), 3); i++) {
+                    NhomVt item = response.get(i);
+                    Log.d("ITEM_DATA",
+                            "Name: " + item.getName() +
+                                    " | Counts: " + (item.getEquipmentStatusCounts() != null ?
+                                    item.getEquipmentStatusCounts() : "null") +
+                                    " | Unit: " + (item.getUnitOfMeasure() != null ?
+                                    item.getUnitOfMeasure().getName() : "null"));
+                }
+
+
                 loaiVtList.clear();
                 loaiVtList.addAll(response);
                 adapter.setLoaiVtList(response);
@@ -49,7 +66,7 @@ public class LoaiVtActivity extends AppCompatActivity {
 
             @Override
             public void onError(String errorMessage) {
-                // Có thể thêm thông báo lỗi
+                Log.e("API_ERROR", "Lỗi: " + errorMessage);
             }
         });
     }

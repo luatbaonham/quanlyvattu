@@ -51,7 +51,7 @@ public interface ApiService {
     @GET("room")
     Call<PhongResponse> getAllPhong();
     @GET("group-equipment")
-    Call<NhomVtResponse> getAllNomVT();
+    Call<NhomVtResponse> getAllNhomVT();
     @PUT("import-receipt/{id}/status")
     Call<PhieuNhapUpdateResponse> updateImportReceiptStatus(
             @Path("id") int importReceiptId,
