@@ -15,7 +15,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fe_quanlyvattu.R;
-import com.example.fe_quanlyvattu.data.model.vattu.loaivattu.EquipmentStatusCounts;
 import com.example.fe_quanlyvattu.data.model.vattu.loaivattu.NhomVt;
 
 import java.util.ArrayList;
