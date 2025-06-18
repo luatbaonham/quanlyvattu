@@ -86,7 +86,7 @@ public class Fragment_home extends Fragment {
         // 3. Hiển thị tên người dùng
         txtViewUsername = view.findViewById(R.id.txtusername);
         SessionManager sessionManager = new SessionManager(getContext());
-        String userName = sessionManager.getUsername();
+        String userName = sessionManager.getFullName();
         txtViewUsername.setText(userName);
 
         // 4. RecyclerView báo cáo

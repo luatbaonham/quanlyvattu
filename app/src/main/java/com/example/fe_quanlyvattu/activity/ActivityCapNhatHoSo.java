@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.example.fe_quanlyvattu.R;
+import com.example.fe_quanlyvattu.auth.SessionManager;
 import com.example.fe_quanlyvattu.data.api.ApiCallback;
 import com.example.fe_quanlyvattu.data.model.profile.UProfile;
 import com.example.fe_quanlyvattu.data.model.profile.UpdateProfileRequest;
@@ -43,10 +44,11 @@ public class ActivityCapNhatHoSo extends AppCompatActivity {
         btnSave = findViewById(R.id.btnSave);
 
         // Set dữ liệu từ JSON giả định
-        etFirstName.setText("Vũ");
-        etLastName.setText("Hoàng");
-        etPhoneNumber.setText("0344549934");
-        etAddress.setText("99 Man Thiện, phường Hiệp Phú");
+        SessionManager sessionManager = new SessionManager(ActivityCapNhatHoSo.this);
+        etFirstName.setText(sessionManager.getFirstName());
+        etLastName.setText(sessionManager.getLastName());
+        etPhoneNumber.setText(sessionManager.getPhone());
+        etAddress.setText(sessionManager.getAddress());
 
         Glide.with(this)
                 .load("https://thinoproawsbucket.s3.ap-southeast-1.amazonaws.com/thi.png")

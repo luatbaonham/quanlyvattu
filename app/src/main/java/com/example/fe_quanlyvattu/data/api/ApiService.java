@@ -5,8 +5,10 @@ import com.example.fe_quanlyvattu.data.model.auth.LoginResponse;
 import com.example.fe_quanlyvattu.data.model.auth.SignupRequest;
 import com.example.fe_quanlyvattu.data.model.common.ApiResponse;
 import com.example.fe_quanlyvattu.data.model.common.Metadata;
+import com.example.fe_quanlyvattu.data.model.equipment.UpdateRoomRequest;
 import com.example.fe_quanlyvattu.data.model.home_baocao.BaoCaoResponse;
 import com.example.fe_quanlyvattu.data.model.kho.EquipmentResponse;
+import com.example.fe_quanlyvattu.data.model.phieumuon.CapNhatTrangThaiPhieuMuonRequest;
 import com.example.fe_quanlyvattu.data.model.phongban.PhongBanResponse;
 import com.example.fe_quanlyvattu.data.model.profile.CheckProfileResponse;
 import com.example.fe_quanlyvattu.data.model.profile.CreateProfileRequest;
@@ -26,6 +28,8 @@ import com.example.fe_quanlyvattu.data.model.phieunhap.PhieuNhapResponse;
 import com.example.fe_quanlyvattu.data.model.phieunhap.PhieuNhapUpdateResponse;
 import com.example.fe_quanlyvattu.data.model.phong.PhongResponse;
 import com.google.gson.JsonObject;
+
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -92,6 +96,25 @@ public interface ApiService {
     Call<GetProfileResponse> getProfile();
     @PUT("profile") // hoặc endpoint thực tế bạn dùng
     Call<UpdateProfileResponse> updateProfile(@Body UpdateProfileRequest request);
+
+    @POST("equipment")
+    Call<Object> taoEquipment(@Body Map<String, Object> body);
+
+    @PUT("borrow-receipt/{id}/action")
+    Call<Object> updateBorrowReceiptStatus(
+            @Path("id") int id,
+            @Body CapNhatTrangThaiPhieuMuonRequest request
+    );
+    @PUT("equipment/{serialNumber}")
+    Call<Object> updateEquipmentRoom(
+            @Path("serialNumber") String serialNumber,
+            @Body UpdateRoomRequest request
+    );
+    @POST("borrow-receipt/{id}/action")
+    Call<Void> performActionOnBorrowReceipt(
+            @Path("id") int borrowReceiptId,
+            @Body Map<String, String> body
+    );
 
 
 

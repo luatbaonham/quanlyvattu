@@ -42,4 +42,20 @@ public class GProfile {
 
     public Account getAccount() { return account; }
     public void setAccount(Account account) { this.account = account; }
+    @Override
+    public String toString() {
+        return "GProfile{" +
+                "id=" + id +
+                ", first_name='" + first_name + '\'' +
+                ", last_name='" + last_name + '\'' +
+                ", avatar_url='" + avatar_url + '\'' +
+                ", phone_number='" + phone_number + '\'' +
+                ", address='" + address + '\'' +
+                ", created_time='" + created_time + '\'' +
+                ", updated_time='" + updated_time + '\'' +
+                ", user_code='" + user_code + '\'' +
+                ", account=" + account +
+                '}';
+    }
+
 }

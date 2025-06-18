@@ -18,4 +18,25 @@ public class Account {
 
     public int getRole_id() { return role_id; }
     public void setRole_id(int role_id) { this.role_id = role_id; }
+    public String getRoleName() {
+        switch (role_id) {
+            case 1:
+                return "admin";
+            case 2:
+                return "staff";
+            default:
+                return "unknown";
+        }
+    }
+    @Override
+    public String toString() {
+        return "Account{" +
+                "username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", phone_number='" + phone_number + '\'' +
+                ", role_id=" + role_id +
+                '}';
+    }
+
+
 }

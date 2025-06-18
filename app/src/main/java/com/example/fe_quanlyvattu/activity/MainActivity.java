@@ -3,6 +3,7 @@ package com.example.fe_quanlyvattu.activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -92,11 +93,27 @@ public class MainActivity extends AppCompatActivity {
                     profileRepository.getProfile(new ApiCallback<GProfile>() {
                         @Override
                         public void onSuccess(GProfile gProfile) {
+                            Log.d("GPROFILE_LOG", gProfile.toString());
+
                             String avatarUrl = gProfile.getAvatar_url();
                             if (avatarUrl != null) {
-                                sessionManager.saveAvatarUrl(avatarUrl); // Gọi hàm tiện lợi bạn đã viết
+                                sessionManager.saveAvatarUrl(avatarUrl);
+                            }
+
+                            sessionManager.saveFirstName(gProfile.getFirst_name());
+                            sessionManager.saveLastName(gProfile.getLast_name());
+
+                            // 👉 Lưu phone & address
+                            sessionManager.savePhone(gProfile.getPhone_number());
+                            sessionManager.saveAddress(gProfile.getAddress());
+
+                            if (gProfile.getAccount() != null) {
+                                sessionManager.saveEmail(gProfile.getAccount().getEmail());
+                                sessionManager.saveRole(gProfile.getAccount().getRoleName());
                             }
                         }
+
+
 
                         @Override
                         public void onError(String errorMessage) {

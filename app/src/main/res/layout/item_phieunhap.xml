@@ -165,5 +165,19 @@
                 app:iconGravity="textStart"
                 app:iconPadding="4dp" />
         </LinearLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGenerateCode"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="TẠO MÃ"
+            android:textColor="@color/primaryColor"
+            app:icon="@drawable/ic_qr_code"
+            app:iconTint="@color/primaryColor"
+            app:iconGravity="textStart"
+            app:iconPadding="4dp"
+            android:visibility="gone" />
     </LinearLayout>
+
+
 </androidx.cardview.widget.CardView>

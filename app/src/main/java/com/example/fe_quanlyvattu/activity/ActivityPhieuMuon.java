@@ -20,7 +20,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ActivityPhieuMuon extends AppCompatActivity {
+public class ActivityPhieuMuon extends AppCompatActivity  {
     private RecyclerView recyclerView;
     private EditText edtTimKiem;
     private Button btnTimKiem;
@@ -38,7 +38,7 @@ public class ActivityPhieuMuon extends AppCompatActivity {
         btnTimKiem = findViewById(R.id.btntk);
 
         // Setup RecyclerView
-        adapter = new PhieuMuonAdapter(new ArrayList<BorrowReceipt>());
+        adapter = new PhieuMuonAdapter(ActivityPhieuMuon.this, new ArrayList<BorrowReceipt>(), null);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

@@ -7,6 +7,9 @@ public class UpdateProfileRequest {
     private String phone_number;
     private String address;
 
+    public UpdateProfileRequest() {
+    }
+
     public UpdateProfileRequest(String first_name, String last_name, String avatar_url, String phone_number, String address) {
         this.first_name = first_name;
         this.last_name = last_name;

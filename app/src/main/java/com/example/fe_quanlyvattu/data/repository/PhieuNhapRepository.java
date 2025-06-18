@@ -16,6 +16,7 @@ import com.example.fe_quanlyvattu.data.model.phieunhap.PhieuNhapWrapper;
 import com.example.fe_quanlyvattu.data.model.phieunhap.UpdateMetadata;
 
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -67,5 +68,23 @@ public class PhieuNhapRepository {
             }
         });
     }
+    public void taoEquipmentMoi(ApiCallback<Object> callback, Map<String, Object> requestBody) {
+        apiService.taoEquipment(requestBody).enqueue(new Callback<Object>() {
+            @Override
+            public void onResponse(Call<Object> call, Response<Object> response) {
+                if (response.isSuccessful()) {
+                    callback.onSuccess(response.body());
+                } else {
+                    callback.onError("Tạo thất bại: " + response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Object> call, Throwable t) {
+                callback.onError(t.getMessage());
+            }
+        });
+    }
+
 
 }

@@ -4,8 +4,12 @@ import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.InputType;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +26,10 @@ import com.example.fe_quanlyvattu.data.model.phieunhap.Item;
 import com.example.fe_quanlyvattu.data.model.phieunhap.PhieuNhap;
 import com.example.fe_quanlyvattu.data.model.phieunhap.PhieuNhapUpdateResponse;
 import com.example.fe_quanlyvattu.data.repository.PhieuNhapRepository;
+import com.example.fe_quanlyvattu.utils.QRUtil;
+import com.google.android.material.button.MaterialButton;
 
+import java.io.ByteArrayOutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -36,7 +43,7 @@ public class PhieuNhapAdapter extends RecyclerView.Adapter<PhieuNhapAdapter.View
     public PhieuNhapAdapter(Context context, List<PhieuNhap> danhSach) {
         this.context = context;
         this.danhSach = danhSach;
-        this.repository = new PhieuNhapRepository(context); // Thêm dòng này nếu bạn chưa có DI
+        this.repository = new PhieuNhapRepository(context);
     }
 
     @NonNull
@@ -71,7 +78,6 @@ public class PhieuNhapAdapter extends RecyclerView.Adapter<PhieuNhapAdapter.View
         }
         holder.tvNgayDat.setText(formattedDate);
 
-        // Ẩn Spinner mặc định
         holder.spinnerTrangThai.setVisibility(View.GONE);
         holder.tvTrangthai.setText(phieu.getStatus());
 
@@ -129,6 +135,79 @@ public class PhieuNhapAdapter extends RecyclerView.Adapter<PhieuNhapAdapter.View
                 public void onNothingSelected(AdapterView<?> parent) {}
             });
         });
+
+        if ("approved".equalsIgnoreCase(phieu.getStatus())) {
+            holder.btnGenerateCode.setVisibility(View.VISIBLE);
+        } else {
+            holder.btnGenerateCode.setVisibility(View.GONE);
+        }
+
+        holder.btnGenerateCode.setOnClickListener(v -> {
+            int totalDevices = 0;
+            for (Item item : phieu.getItems()) {
+                totalDevices += item.getQuantity();
+            }
+
+            if (totalDevices == 0) {
+                Toast.makeText(context, "Không có thiết bị nào để tạo", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            final int[] successCount = {0};
+            final int[] errorCount = {0};
+
+            holder.btnGenerateCode.setEnabled(false);
+            Toast.makeText(context, "Đang tạo " + totalDevices + " thiết bị...", Toast.LENGTH_SHORT).show();
+
+            for (Item item : phieu.getItems()) {
+                for (int i = 0; i < item.getQuantity(); i++) {
+                    String serialNumber = UUID.randomUUID().toString();
+                    Bitmap qrCode = QRUtil.generateQRCode(serialNumber, 512);
+                    String qrBase64 = bitmapToBase64(qrCode);
+
+                    Map<String, Object> requestBody = new HashMap<>();
+                    requestBody.put("groupEquipmentCode", item.getCode());
+                    requestBody.put("status", "available");
+                    requestBody.put("serialNumber", serialNumber);
+                    //requestBody.put("qrCodeImage", qrBase64);
+
+                    int finalTotalDevices = totalDevices;
+                    repository.taoEquipmentMoi(new ApiCallback<Object>() {
+                        @Override
+                        public void onSuccess(Object response) {
+                            successCount[0]++;
+                            checkCompletion(finalTotalDevices, successCount[0], errorCount[0], holder);
+                        }
+
+                        @Override
+                        public void onError(String errorMessage) {
+                            errorCount[0]++;
+                            checkCompletion(finalTotalDevices, successCount[0], errorCount[0], holder);
+                        }
+                    }, requestBody);
+                }
+            }
+        });
+    }
+
+    private void checkCompletion(int totalDevices, int successCount, int errorCount, ViewHolder holder) {
+        if (successCount + errorCount == totalDevices) {
+            new Handler(Looper.getMainLooper()).post(() -> {
+                holder.btnGenerateCode.setEnabled(true);
+                String message = "Tạo thành công " + successCount + "/" + totalDevices + " thiết bị";
+                if (errorCount > 0) {
+                    message += " (" + errorCount + " lỗi)";
+                }
+                Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+            });
+        }
+    }
+
+    private String bitmapToBase64(Bitmap bitmap) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+        byte[] byteArray = byteArrayOutputStream.toByteArray();
+        return Base64.encodeToString(byteArray, Base64.DEFAULT);
     }
 
     @Override
@@ -144,6 +223,7 @@ public class PhieuNhapAdapter extends RecyclerView.Adapter<PhieuNhapAdapter.View
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvMaPhieuNhap, tvNguoiTao, tvNgayDat, tvNhaCungCap, tvTrangthai;
+        MaterialButton btnGenerateCode;
         Button btnSua;
         Spinner spinnerTrangThai;
 
@@ -156,6 +236,7 @@ public class PhieuNhapAdapter extends RecyclerView.Adapter<PhieuNhapAdapter.View
             tvTrangthai = itemView.findViewById(R.id.tvTrangthai);
             spinnerTrangThai = itemView.findViewById(R.id.spinnerTrangThai);
             btnSua = itemView.findViewById(R.id.btnEdit);
+            btnGenerateCode = itemView.findViewById(R.id.btnGenerateCode);
         }
     }
 
@@ -168,20 +249,13 @@ public class PhieuNhapAdapter extends RecyclerView.Adapter<PhieuNhapAdapter.View
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(adapter);
 
-        // Gắn layout vào dialog
         dialog.setContentView(dialogView);
-
-        // Nền trong suốt để bo góc đẹp
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-
-        // Gắn animation style
         dialog.getWindow().getAttributes().windowAnimations = R.style.SlideDownDialogTheme;
 
-        // Nếu muốn thêm nút Đóng:
-        Button btnClose = dialogView.findViewById(R.id.btnClose); // Bạn cần có nút này trong layout
+        Button btnClose = dialogView.findViewById(R.id.btnClose);
         btnClose.setOnClickListener(v -> dialog.dismiss());
 
         dialog.show();
     }
-
 }

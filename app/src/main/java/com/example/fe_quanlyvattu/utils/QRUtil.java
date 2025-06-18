@@ -1,0 +1,36 @@
+package com.example.fe_quanlyvattu.utils;
+
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
+
+public class QRUtil {
+
+    /**
+     * Tạo mã QR từ chuỗi văn bản
+     * @param text nội dung muốn mã hoá (ví dụ: serial, JSON)
+     * @param size kích thước mã QR vuông (ví dụ: 512)
+     * @return Bitmap hình ảnh mã QR
+     */
+    public static Bitmap generateQRCode(String text, int size) {
+        QRCodeWriter writer = new QRCodeWriter();
+        try {
+            BitMatrix bitMatrix = writer.encode(text, BarcodeFormat.QR_CODE, size, size);
+            Bitmap bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.RGB_565);
+
+            for (int x = 0; x < size; x++) {
+                for (int y = 0; y < size; y++) {
+                    bitmap.setPixel(x, y, bitMatrix.get(x, y) ? Color.BLACK : Color.WHITE);
+                }
+            }
+            return bitmap;
+        } catch (WriterException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+}
+
