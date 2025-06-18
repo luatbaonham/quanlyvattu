@@ -110,7 +110,7 @@ public interface ApiService {
             @Path("serialNumber") String serialNumber,
             @Body UpdateRoomRequest request
     );
-    @POST("borrow-receipt/{id}/action")
+    @PUT("borrow-receipt/{id}/action")
     Call<Void> performActionOnBorrowReceipt(
             @Path("id") int borrowReceiptId,
             @Body Map<String, String> body

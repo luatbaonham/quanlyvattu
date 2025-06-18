@@ -72,7 +72,7 @@ public class PhieuMuonAdapter extends RecyclerView.Adapter<PhieuMuonAdapter.View
         holder.tvSoLuong.setText("Tổng SL: " + tongSoLuong);
 
         // Hiện nút scan nếu trạng thái là pending
-        if ("pending".equalsIgnoreCase(phieu.getStatus())) {
+        if ("approved".equalsIgnoreCase(phieu.getStatus())) {
             holder.btnScan.setVisibility(View.VISIBLE);
         } else {
             holder.btnScan.setVisibility(View.GONE);

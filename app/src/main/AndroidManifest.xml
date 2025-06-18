@@ -45,6 +45,8 @@
         <activity android:name=".activity.activity_dang_ky" />
         <activity android:name=".activity.ActivityCreateProfile" />
         <activity android:name=".activity.ActivityCapNhatHoSo"/>
+        <activity android:name=".activity.ScanActivity"/>
+
 
     </application>
 
